@@ -170,6 +170,12 @@ return { -- LSP Configuration & Plugins
 			},
 		})
 
-		require("lspconfig").clangd.setup({})
+		if vim.fn.executable("clangd") == 1 then
+			require("lspconfig").clangd.setup({
+				on_attach = function()
+					vim.keymap.set("n", "<leader>o", ":ClangdSwitchSourceHeader<CR>")
+				end,
+			})
+		end
 	end,
 }
