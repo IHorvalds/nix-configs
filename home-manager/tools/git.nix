@@ -5,9 +5,10 @@
     userEmail = "ihorvalds@outlook.com";
     aliases = {
       co = "checkout";
-      nb = "checkout =b";
+      nb = "checkout -b";
       st = "status";
       cm = "commit -m";
+      ca = "commit --amend";
     };
   };
 }

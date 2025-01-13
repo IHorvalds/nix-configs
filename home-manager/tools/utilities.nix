@@ -18,12 +18,4 @@
     enable = true;
     matchBlocks."<home.username>".identitiesOnly = true;
   };
-
-  # Extra utilities
-  # home.packages = home.packages ++ [
-  #   pkgs.vcpkg
-  #   pkgs.linuxKernel.packages.linux_zen.xpadneo
-  #   pkgs.plymouth
-  #   pkgs.catppuccin-plymouth
-  # ];
 }
