@@ -11,7 +11,7 @@ in
     xserver.displayManager.gdm.enable = true;
     xserver.desktopManager.gnome.enable = true;
   };
-  
+
   config = {
     environment = lib.mkIf config.gnome.enable {
       gnome.excludePackages = with pkgs; [

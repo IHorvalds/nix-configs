@@ -1,13 +1,23 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, stdenv, lib, ... }:
+{
+  config,
+  pkgs,
+  stdenv,
+  lib,
+  ...
+}:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./gnome.nix
+      ./plasma.nix
     ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot = {
@@ -18,8 +28,12 @@
     plymouth.enable = true;
   };
 
+  # Select One
+
   # Gnome
-  gnome.enable = true;
+  gnome.enable = false;
+  # Plasma
+  plasma.enable = true;
 
   networking.hostName = "cheesecake"; # Define your hostname.
   #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -45,9 +59,6 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -75,21 +86,14 @@
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  
   users.users.horvalds = {
     isNormalUser = true;
     description = "Tudor Croitoru";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [
-    #  thunderbird
-    ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -101,14 +105,12 @@
     transmission_4
     vlc
     protonvpn-gui
+    nixd
+    home-manager
 
     linuxKernel.packages.linux_zen.xpadneo
     linuxKernel.packages.linux_zen.broadcom_sta
     easyeffects
-
-    # gnomeExtensions.wireguard-vpn-extension
-    # gnomeExtensions.weather-or-not
-    # gnomeExtensions.paperwm
   ];
 
   fonts.packages = with pkgs; [
@@ -137,28 +139,13 @@
   # Git
   programs.git.enable = true;
 
-  # BASH
-  programs.bash = {
-    promptInit = ''
-function get_git_branch() {
-  if [[ ! -z $(git branch --show-current 2> /dev/null) ]]; then
-    echo "{ git: $(git branch --show-current 2> /dev/null) }"
-  fi
-  echo ""
-}
-
-PROMPT_COMMAND='PS1_CMD1=$(get_git_branch)'
-'' +
-"PS1='\\[\\e[38;5;220m\\]\\u\\[\\e[37m\\]@\\[\\e[38;5;208m\\]\\h\\[\\e[0m\\] \\[\\e[37;3m\\]\\W\\[\\e[0m\\]\\[\\e[38;5;45m\\] \${PS1_CMD1}\\[\\e[0m\\]\n\$ '";
-  };
-
   # AppImage
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
   # Services
   services.flatpak.enable = true;
-  
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
