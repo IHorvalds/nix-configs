@@ -1,7 +1,6 @@
 {config, pkgs, lib, ...}:
 let
   plasmaOption = lib.mkEnableOption "plasma";
-  tokyo-night-sddm = pkgs.libsForQt5.callPackage ./sddm-tokyo-night-theme.nix { };
 in
 {
   options.plasma = {
@@ -10,9 +9,11 @@ in
 
   config.services = lib.mkIf config.plasma.enable {
       # Enable the KDE Plasma Desktop Environment.
-      displayManager.sddm.enable = true;
+      displayManager.sddm = {
+        enable = true;
+        theme = "breeze";
+      };
       desktopManager.plasma6.enable = true;
-      displayManager.sddm.theme = "tokyo-night-sddm";
       xserver.enable = false;
   };
 
@@ -22,9 +23,7 @@ in
     ];
   };
 
-  config.environment = lib.mkIf config.plasma.enable {
-    systemPackages = with pkgs; [ tokyo-night-sddm ];
+  config.programs.firefox = lib.mkIf config.plasma.enable {
+    nativeMessagingHosts.packages = [ pkgs.kdePackages.plasma-browser-integration ];
   };
-
-
 }

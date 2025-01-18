@@ -1,11 +1,12 @@
+{ ... }:
 {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "Monokai Pro Spectrum";
       font-size = 10;
-      font-family = "Monaspace";
+      font-family = "Fira Code";
     };
   };
 
@@ -16,6 +17,5 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."<home.username>".identitiesOnly = true;
   };
 }

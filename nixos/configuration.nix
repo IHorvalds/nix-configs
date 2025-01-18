@@ -12,21 +12,14 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./bootloader.nix
       ./gnome.nix
       ./plasma.nix
+      ./horvalds-home/horvalds-home.nix
     ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Bootloader.
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    plymouth.enable = true;
-  };
 
   # Select One
 
@@ -36,11 +29,16 @@
   plasma.enable = true;
 
   networking.hostName = "cheesecake"; # Define your hostname.
-  #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  #  networking.wireless.networks = import ./wifi_networks.nix;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      scanRandMacAddress = false;
+      powersave = false;
+      macAddress = "stable";
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -73,7 +71,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -93,7 +91,12 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "media.ffmpeg.vaapi.enabled" = true;
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -102,7 +105,7 @@
     vim
     stow
     vcpkg
-    transmission_4
+    transmission_4-qt
     vlc
     protonvpn-gui
     nixd
@@ -110,6 +113,7 @@
 
     linuxKernel.packages.linux_zen.xpadneo
     linuxKernel.packages.linux_zen.broadcom_sta
+    intel-media-driver
     easyeffects
   ];
 
