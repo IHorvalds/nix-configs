@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ...}:
+{ pkgs, ...}:
 
 {
-  home.packages = [
-    pkgs.cheese
+  home.packages = with pkgs; [
+    cheese
+    whatsapp-for-linux
+    discord
   ];
 }
