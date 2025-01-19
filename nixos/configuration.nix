@@ -12,32 +12,27 @@
   imports =
     [
       ./hardware-configuration.nix
+      
       ./bootloader.nix
       ./gnome.nix
       ./plasma.nix
       ./horvalds-home/horvalds-home.nix
+
+      ./mbp-13-2015.nix
     ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Select One
-
   # Gnome
   gnome.enable = false;
   # Plasma
   plasma.enable = true;
 
-  networking.hostName = "cheesecake"; # Define your hostname.
-
   # Enable networking
   networking.networkmanager = {
     enable = true;
-    wifi = {
-      scanRandMacAddress = false;
-      powersave = false;
-      macAddress = "stable";
-    };
   };
 
   # Set your time zone.
@@ -57,15 +52,6 @@
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "mac";
-  };
-
-  # Configure console keymap
-  console.keyMap = "us";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -111,10 +97,9 @@
     nixd
     home-manager
 
+    kmonad
+
     linuxKernel.packages.linux_zen.xpadneo
-    linuxKernel.packages.linux_zen.broadcom_sta
-    intel-media-driver
-    easyeffects
   ];
 
   fonts.packages = with pkgs; [
@@ -132,13 +117,10 @@
     protontricks.enable = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  #programs.gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
+  #};
 
   # Git
   programs.git.enable = true;
@@ -150,10 +132,7 @@
   # Services
   services.flatpak.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
+  # Disable the firewall altogether.
   networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
