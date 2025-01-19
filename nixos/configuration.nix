@@ -124,10 +124,9 @@
     protontricks.enable = true;
   };
 
-  #programs.gnupg.agent = {
-  #  enable = true;
-  #  enableSSHSupport = true;
-  #};
+  programs.ssh = {
+    startAgent = true;
+  };
 
   # Git
   programs.git.enable = true;
