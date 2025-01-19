@@ -30,6 +30,7 @@ in
       ./tools/tmux.nix
       ./tools/vscode.nix
       ./tools/easy-effects.nix
+      ./tools/kmonad.nix
     ];
   };
 }

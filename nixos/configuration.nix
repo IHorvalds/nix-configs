@@ -73,7 +73,12 @@
   users.users.horvalds = {
     isNormalUser = true;
     description = "Tudor Croitoru";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ 
+      "networkmanager"
+      "wheel"
+      "input"
+      "uinput"
+    ];
   };
 
   # Install firefox.

@@ -1,0 +1,36 @@
+(defcfg
+  input  (device-file "/dev/input/by-id/usb-Apple_Inc._Apple_Internal_Keyboard___Trackpad_D3H5367A601FTV3AV1KF-if01-event-kbd")
+  output (uinput-sink
+          "IH MacbookPro2015 KB")
+  
+  fallthrough true
+  allow-cmd false
+  cmp-seq ralt
+)
+(defsrc 
+                up
+rmet ralt left down rght)
+
+(deflayer base 
+                       up
+rmet @towordskip left down rght)
+
+(defalias towordskip (layer-toggle wordskip))
+(defalias tolongwordskip (layer-toggle longwordskip))
+
+;; name for Ctrl-Left
+(defalias cleft C-left)
+;; name for Ctrl-Right 
+(defalias cright C-rght)
+;; name for Ctrl-Home (top)
+(defalias chome C-home)
+;; name for Ctrl-End (bottom)
+(defalias cend C-end)
+
+(deflayer wordskip 
+                             up
+@tolongwordskip ralt @cleft down @cright)
+(deflayer longwordskip
+
+               @chome
+rmet ralt home @cend end)
