@@ -96,6 +96,8 @@
     protonvpn-gui
     nixd
     home-manager
+    fzf
+    ripgrep
 
     kmonad
 
