@@ -17,13 +17,14 @@
 
   programs.ssh = {
     enable = true;
+    addKeysToAgent = "yes";
     matchBlocks = {
-      gh_key = {
+      "github.com" = {
         hostname = "github.com";
         user = "git";
         identityFile = "${config.home.homeDirectory}/.ssh/gh_fedora_mbp13";
       };
-      pistachio = {
+      "pistachio.taylorlab.home" = {
         hostname = "pistachio.taylorlab.home";
         user = "horvalds";
         identityFile = "${config.home.homeDirectory}/.ssh/pistachio";
