@@ -23,7 +23,15 @@ in
     ];
   };
 
+  config.environment = lib.mkIf config.plasma.enable {
+    systemPackages = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
   config.programs.firefox = lib.mkIf config.plasma.enable {
     nativeMessagingHosts.packages = [ pkgs.kdePackages.plasma-browser-integration ];
   };
+
+  config.programs.chromium.enablePlasmaBrowserIntegration = config.plasma.enable;
 }

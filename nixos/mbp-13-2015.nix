@@ -26,4 +26,7 @@
     intel-media-driver
     easyeffects
   ];
+
+  # Webcam driver
+  hardware.facetimehd.enable = true;
 }

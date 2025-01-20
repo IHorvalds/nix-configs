@@ -86,12 +86,20 @@
     };
   };
 
+  # Install Chromium
+  programs.chromium = {
+    enable = true;
+    defaultSearchProviderEnabled = true;
+    defaultSearchProviderSearchURL = "https://duckduckgo.com/?q={searchTerm}";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
     vim
     stow
+    google-chrome
     vcpkg
     transmission_4-qt
     vlc
