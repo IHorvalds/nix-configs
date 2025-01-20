@@ -13,7 +13,7 @@ rmet ralt left down rght)
 
 (deflayer base 
                        up
-rmet @towordskip left down rght)
+@tolongwordskip @towordskip left down rght)
 
 (defalias towordskip (layer-toggle wordskip))
 (defalias tolongwordskip (layer-toggle longwordskip))
@@ -29,7 +29,7 @@ rmet @towordskip left down rght)
 
 (deflayer wordskip 
                              up
-@tolongwordskip ralt @cleft down @cright)
+rmet ralt @cleft down @cright)
 (deflayer longwordskip
 
                @chome
