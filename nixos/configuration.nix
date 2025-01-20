@@ -2,10 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
-  stdenv,
-  lib,
   ...
 }:
 {
@@ -140,6 +137,15 @@
 
   # Disable the firewall altogether.
   networking.firewall.enable = false;
+
+  # Auto updates
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+    operation = "switch";
+    dates = "Sat *-*-* 07:00:00";
+    persistent = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
