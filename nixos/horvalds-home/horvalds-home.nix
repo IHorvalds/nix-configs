@@ -22,6 +22,10 @@ in
       bashrcExtra = builtins.readFile ./tools/cool-bash-prompt.sh;
     };
 
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
+
     imports = [
       ./tools/git.nix
       ./tools/compilers.nix

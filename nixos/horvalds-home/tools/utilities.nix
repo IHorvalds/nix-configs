@@ -1,18 +1,30 @@
 { lib, config, ... }:
 {
-  programs.ghostty = {
+  programs.alacritty = {
     enable = true;
-    enableBashIntegration = true;
     settings = {
-      theme = "Monokai Pro Spectrum";
-      font-size = 10;
-      font-family = "Fira Code";
+      window = {
+        dynamic_title = true;
+      };
+
+      font = {
+        normal = {
+          family = "Fira Code";
+          style = "Medium";
+        };
+      };
+
+      cursor = {
+        style = {
+          shape = "Block";
+          blinking = "On";
+        };
+      };
     };
   };
 
   programs.neovim = {
     enable = true;
-    
   };
 
   programs.ssh = {
