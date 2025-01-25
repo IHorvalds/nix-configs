@@ -11,16 +11,4 @@
     source = ./easy-effects-presets/MBP-13-2015.json;
     target = "./easyeffects/output/MBP-13-2015.json";
   };
-
-  systemd.user.services.easyEffectsService = {
-    Unit = {
-      Description = "Start EasyEffects application";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-    Service = {
-      ExecStart = "/run/current-system/sw/bin/easyeffects --gapplication-service";
-    };
-  };
 }
