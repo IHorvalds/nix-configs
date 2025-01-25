@@ -33,6 +33,7 @@ in
       ./tools/extra-packages.nix
       ./tools/tmux.nix
       ./tools/vscode.nix
+      ./tools/vim.nix
       ./tools/easy-effects.nix
       ./tools/kmonad.nix
     ];
