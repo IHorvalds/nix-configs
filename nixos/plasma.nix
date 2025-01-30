@@ -26,6 +26,7 @@ in
   config.environment = lib.mkIf config.plasma.enable {
     systemPackages = with pkgs; [
       xdg-desktop-portal-gtk
+      xsettingsd
     ];
   };
 
