@@ -30,3 +30,19 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- Resize panes
+vim.keymap.set("n", "<leader><", "<C-w><", { desc = "Resize pane left" })
+vim.keymap.set("n", "<leader>>", "<C-w>>", { desc = "Resize pane right" })
+vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Even horizontal split" })
+
+-- Move, close, navigate tabs
+vim.keymap.set("n", "<M-a><shift><left>", ":tabprevious<CR>", { desc = "Move to previous tab" })
+vim.keymap.set("n", "<M-a><shift><right>", ":tabnext<CR>", { desc = "Move to next tab" })
+vim.keymap.set("n", "<M-a>x", ":tabclose<CR>", { desc = "Close current tab" })
+vim.keymap.set("n", "<M-a><shift>n", ":tabnew<CR>", { desc = "Open new tab" })
+
+-- Move, close buffers
+vim.keymap.set("n", "<M-a><left>", ":b#<CR>", { desc = "Navigate to previous buffer" })
+vim.keymap.set("n", "<M-a><right>", ":bn<CR>", { desc = "Navigate to next buffer" })
+vim.keymap.set("n", "<M-a>l", ":buffers<CR>", { desc = "Show buffers" })
