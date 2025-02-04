@@ -27,6 +27,7 @@ in
     systemPackages = with pkgs; [
       xdg-desktop-portal-gtk
       xsettingsd
+      xorg.xrdb
     ];
   };
 

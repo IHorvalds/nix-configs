@@ -5,6 +5,10 @@
     settings = {
       window = {
         dynamic_title = true;
+        dimensions = {
+          columns = 110;
+          lines = 30;
+        };
       };
 
       font = {

@@ -11,6 +11,7 @@
       vim-airline-themes
       vim-bufferline
       vim-go
+      vim-toml
       lf-vim
       vim-cool
       vim-move
@@ -37,7 +38,9 @@
       set hlsearch
       set noshowmode
       let g:airline_theme="badwolf"
-      let g:colorscheme="sortbet"
+      let g:colorscheme="monokai"
+      let g:NERDTreeHijackNetrw = 0
+      let g:lf_replace_netrw = 1 
 
       map <Leader>b :NERDTreeToggle<CR>
     '';
