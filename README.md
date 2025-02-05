@@ -33,4 +33,5 @@ to `home.nix` to allow using the GPU accelerated versions of packages.
 
 ### Installation
 
-Run `home-manager switch`
+- Move (or stow) the `home-manager` to .config/
+- Run `home-manager switch`
