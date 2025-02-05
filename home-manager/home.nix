@@ -31,5 +31,6 @@
     ./tools/vim.nix
     ./tools/easy-effects.nix
     ./tools/kmonad.nix
+    ./fonts/nerdfont.nix
   ];
 }

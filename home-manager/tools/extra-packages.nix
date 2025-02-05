@@ -8,5 +8,7 @@
 
     gcc14
     llvmPackages_19.clang-tools
+
+    wezterm
   ];
 }

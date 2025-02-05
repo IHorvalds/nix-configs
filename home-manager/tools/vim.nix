@@ -15,9 +15,11 @@
       lf-vim
       vim-cool
       vim-move
-      vim-monokai
       nerdtree
       vim-commentary
+      vim-devicons
+      nord-vim
+      vim-fugitive
     ];
     settings = {
       expandtab = true;
@@ -32,17 +34,22 @@
     };
     extraConfig = ''
       nnoremap <SPACE> <Nop>
-      let g:mapleader=" "
-      set listchars="tab:» ","trail:·","nbsp=␣"
+      let g:mapleader = " "
+      set listchars = "tab:» ","trail:·","nbsp=␣"
       set autochdir
       set hlsearch
       set noshowmode
-      let g:airline_theme="badwolf"
-      let g:colorscheme="monokai"
+      let g:airline_theme = "nord_minimal"
+      let g:airline_powerline_fonts = 1
+      colorscheme nord
       let g:NERDTreeHijackNetrw = 0
       let g:lf_replace_netrw = 1 
 
       map <Leader>b :NERDTreeToggle<CR>
+
+      if (has("termguicolors"))
+        set termguicolors
+      end
     '';
 
   };

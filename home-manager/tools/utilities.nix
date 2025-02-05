@@ -13,7 +13,7 @@
 
       font = {
         normal = {
-          family = "Fira Code";
+          family = "FiraCode Nerd Font";
           style = "Medium";
         };
       };
