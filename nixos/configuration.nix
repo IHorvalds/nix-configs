@@ -13,7 +13,6 @@
       ./bootloader.nix
       ./gnome.nix
       ./plasma.nix
-      ./horvalds-home/horvalds-home.nix
 
       ./mbp-13-2015.nix
     ];
