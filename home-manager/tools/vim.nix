@@ -43,7 +43,7 @@
       set autochdir
       set hlsearch
       set noshowmode
-      let g:airline_theme = "nord_minimal"
+      let g:airline_theme = "nord"
       let g:airline_powerline_fonts = 1
       colorscheme nord
       let g:NERDTreeHijackNetrw = 0
@@ -51,10 +51,6 @@
 
       map <Leader>b :NERDTreeToggle<CR>
       map <Leader><S-f> gg=G
-
-      if (has("termguicolors"))
-        set termguicolors
-      end
     '';
 
   };

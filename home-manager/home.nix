@@ -26,6 +26,7 @@
     ./tools/compilers.nix
     ./tools/utilities.nix
     ./tools/extra-packages.nix
+    ./tools/alacritty.nix
     ./tools/tmux.nix
     ./tools/vscode.nix
     ./tools/vim.nix
