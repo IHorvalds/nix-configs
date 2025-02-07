@@ -1,4 +1,4 @@
-{ pkgs, programs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     lf
@@ -20,6 +20,10 @@
       vim-devicons
       nord-vim
       vim-fugitive
+      fzf-vim
+
+      vim-lsp
+      vim-lsp-settings
     ];
     settings = {
       expandtab = true;
@@ -46,6 +50,7 @@
       let g:lf_replace_netrw = 1 
 
       map <Leader>b :NERDTreeToggle<CR>
+      map <Leader><S-f> gg=G
 
       if (has("termguicolors"))
         set termguicolors

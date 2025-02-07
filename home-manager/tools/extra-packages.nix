@@ -10,5 +10,7 @@
     llvmPackages_19.clang-tools
 
     wezterm
+    fzf-make
+    fzf-git-sh
   ];
 }
