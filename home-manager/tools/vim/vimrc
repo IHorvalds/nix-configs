@@ -17,12 +17,19 @@ set tabstop=2
 set undodir="tmp"
 set undofile
 
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 let g:airline_theme = "nord"
+let g:move_key_modifier_visualmode = 'C'
 let g:airline_powerline_fonts = 1
 let g:NERDTreeHijackNetrw = 0
 let g:lf_replace_netrw = 1
+if has("termguicolors")
+  set termguicolors
+endif
 
 so ~/vimcfgs/language-servers.vim
 
+map <C-b> :Buffers<CR>
+map <C-p> :Files<CR>
 map <Leader>b :NERDTreeToggle<CR>
 map <Leader><S-f> gg=G
