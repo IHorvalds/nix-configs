@@ -5,9 +5,9 @@
     cheese
     whatsapp-for-linux
     discord
+    obsidian
 
-    gcc14
-    llvmPackages_19.clang-tools
+    bat
 
     wezterm
     fzf-make

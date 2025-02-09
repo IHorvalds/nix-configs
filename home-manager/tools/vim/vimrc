@@ -1,0 +1,27 @@
+nnoremap <SPACE> <Nop>
+let g:mapleader = " "
+set listchars = "tab:» ","trail:·","nbsp=␣"
+set autochdir
+set hlsearch
+set noshowmode
+colorscheme nord
+
+set expandtab
+set ignorecase
+set mouse="a"
+set shiftwidth=2
+set smartcase
+set tabstop=2
+
+set undodir="tmp"
+set undofile
+
+let g:airline_theme = "nord"
+let g:airline_powerline_fonts = 1
+let g:NERDTreeHijackNetrw = 0
+let g:lf_replace_netrw = 1
+
+so ~/vimcfgs/language-servers.vim
+
+map <Leader>b :NERDTreeToggle<CR>
+map <Leader><S-f> gg=G

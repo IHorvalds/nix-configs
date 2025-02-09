@@ -23,9 +23,9 @@
 
   imports = [
     ./tools/git.nix
-    ./tools/compilers.nix
     ./tools/utilities.nix
     ./tools/extra-packages.nix
+    ./tools/language-servers.nix
     ./tools/alacritty.nix
     ./tools/tmux.nix
     ./tools/vscode.nix

@@ -25,33 +25,12 @@
       vim-lsp
       vim-lsp-settings
     ];
-    settings = {
-      expandtab = true;
-      ignorecase = true;
-      mouse = "a";
-      relativenumber = true;
-      shiftwidth = 2;
-      smartcase = true;
-      tabstop = 2;
-      undofile = true;
-      undodir = [ "/tmp/" ];
-    };
-    extraConfig = ''
-      nnoremap <SPACE> <Nop>
-      let g:mapleader = " "
-      set listchars = "tab:» ","trail:·","nbsp=␣"
-      set autochdir
-      set hlsearch
-      set noshowmode
-      let g:airline_theme = "nord"
-      let g:airline_powerline_fonts = 1
-      colorscheme nord
-      let g:NERDTreeHijackNetrw = 0
-      let g:lf_replace_netrw = 1 
+    extraConfig = builtins.readFile ./vim/vimrc;
+  };
 
-      map <Leader>b :NERDTreeToggle<CR>
-      map <Leader><S-f> gg=G
-    '';
 
+  home.file."vimcfgs" = {
+    source = ./vim/configs;
+    recursive = true;
   };
 }
