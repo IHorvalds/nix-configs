@@ -6,6 +6,7 @@ set hlsearch
 set noshowmode
 colorscheme nord
 
+set rnu
 set expandtab
 set ignorecase
 set mouse="a"
