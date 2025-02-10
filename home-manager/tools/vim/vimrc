@@ -25,6 +25,11 @@ let g:NERDTreeHijackNetrw = 0
 let g:lf_replace_netrw = 1
 if has("termguicolors")
   set termguicolors
+  if &t_8f == ''
+    " The first characters after the equals sign are literal escape characters.
+    set t_8f=[38;2;%lu;%lu;%lum
+    set t_8b=[48;2;%lu;%lu;%lum
+  endif
 endif
 
 so ~/vimcfgs/language-servers.vim
