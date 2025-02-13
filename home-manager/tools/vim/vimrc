@@ -34,7 +34,7 @@ endif
 
 so ~/vimcfgs/language-servers.vim
 
-map <C-b> :Buffers<CR>
+map <C-e> :Buffers<CR>
 map <C-p> :Files<CR>
 map <Leader>b :NERDTreeToggle<CR>
 map <Leader><S-f> gg=G
