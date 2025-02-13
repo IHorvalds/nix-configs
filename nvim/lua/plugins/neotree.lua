@@ -15,6 +15,6 @@ return {
 			use_libuv_file_watcher = false,
 		})
 
-		vim.keymap.set("n", "<leader>b", ":Neotree filesystem toggle left<CR>", {})
+		vim.keymap.set("n", "<leader>b", ":Neotree filesystem toggle float<CR>", {})
 	end,
 }
