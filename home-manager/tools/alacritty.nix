@@ -16,7 +16,7 @@
 
       font = {
         normal = {
-          family = "FiraCode Nerd Font";
+          family = "FiraCode Nerd Font Mono";
           style = "Medium";
         };
       };

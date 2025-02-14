@@ -114,7 +114,10 @@
     kmonad
 
     linuxKernel.packages.linux_zen.xpadneo
+    bluez-tools
   ];
+
+  hardware.bluetooth.enable = true;
 
   fonts.packages = with pkgs; [
     fira-code

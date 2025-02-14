@@ -14,6 +14,7 @@
       vim-toml
       lf-vim
       vim-cool
+      vim-clap
       vim-move
       nerdtree
       vim-commentary
@@ -21,9 +22,13 @@
       nord-vim
       vim-fugitive
       fzf-vim
+      vim-json
+      vim-pasta
+      colorizer
 
       vim-lsp
       vim-lsp-settings
+      YouCompleteMe
     ];
     extraConfig = builtins.readFile ./vim/vimrc;
   };

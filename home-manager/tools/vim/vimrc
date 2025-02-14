@@ -18,23 +18,21 @@ set undodir="tmp"
 set undofile
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-let g:airline_theme = "nord"
-let g:move_key_modifier_visualmode = 'C'
-let g:airline_powerline_fonts = 1
-let g:NERDTreeHijackNetrw = 0
-let g:lf_replace_netrw = 1
+let g:airline_theme="nord"
+let g:move_key_modifier_visualmode='C'
+let g:airline_powerline_fonts=1
+let g:NERDTreeHijackNetrw=0
+let g:lf_replace_netrw=1
+let g:lf_map_keys=0
+let g:lf_command_override='lf -command "set hidden"'
 if has("termguicolors")
   set termguicolors
-  if &t_8f == ''
-    " The first characters after the equals sign are literal escape characters.
-    set t_8f=[38;2;%lu;%lu;%lum
-    set t_8b=[48;2;%lu;%lu;%lum
-  endif
 endif
 
 so ~/vimcfgs/language-servers.vim
 
 map <C-e> :Buffers<CR>
 map <C-p> :Files<CR>
+map <Leader>f :LfNewTab<CR>
 map <Leader>b :NERDTreeToggle<CR>
 map <Leader><S-f> gg=G

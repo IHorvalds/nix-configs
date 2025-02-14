@@ -8,8 +8,9 @@
     obsidian
 
     bat
+    devenv
 
-    wezterm
+    ghostty
     fzf-make
     fzf-git-sh
   ];

@@ -28,6 +28,7 @@ in
       xdg-desktop-portal-gtk
       xsettingsd
       xorg.xrdb
+      kdePackages.bluez-qt
     ];
   };
 
