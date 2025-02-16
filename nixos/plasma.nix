@@ -32,6 +32,8 @@ in
     ];
   };
 
+  config.programs.kdeconnect.enable = config.plasma.enable;
+
   config.programs.firefox = lib.mkIf config.plasma.enable {
     nativeMessagingHosts.packages = [ pkgs.kdePackages.plasma-browser-integration ];
   };
