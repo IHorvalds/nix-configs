@@ -46,3 +46,7 @@ vim.keymap.set("n", "<M-a><shift>n", ":tabnew<CR>", { desc = "Open new tab" })
 vim.keymap.set("n", "<M-a><left>", ":b#<CR>", { desc = "Navigate to previous buffer" })
 vim.keymap.set("n", "<M-a><right>", ":bn<CR>", { desc = "Navigate to next buffer" })
 vim.keymap.set("n", "<M-a>l", ":buffers<CR>", { desc = "Show buffers" })
+
+-- Move between words simpler
+vim.keymap.set("n", "<leader>l", "e", { desc = "Simpler map to end of word" })
+vim.keymap.set("n", "<leader>h", "b", { desc = "Simpler map to beginning of word" })
