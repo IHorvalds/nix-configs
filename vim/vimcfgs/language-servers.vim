@@ -21,6 +21,7 @@ endfunction
 
 so ~/vimcfgs/pylsp.vim
 so ~/vimcfgs/luals.vim
+so ~/vimcfgs/clangd.vim
 
 
 augroup lsp_install
