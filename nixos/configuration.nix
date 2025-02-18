@@ -115,6 +115,7 @@
 
     linuxKernel.packages.linux_zen.xpadneo
     bluez-tools
+    thunderbird
   ];
 
   hardware.bluetooth.enable = true;
