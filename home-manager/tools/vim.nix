@@ -11,6 +11,7 @@
       vim-airline-themes
       vim-bufferline
       vim-go
+      ack-vim
       vim-toml
       lf-vim
       vim-cool
