@@ -65,7 +65,6 @@ so ~/vimcfgs/ack.vim
 map <Leader><Leader> :Buffers<CR>
 map <C-p> :Files<CR>
 map <C-f> :BLines<CR>
-map <Leader><C-f> :vimgrep 
 map <Leader>f :LfNewTab<CR>
 map <Leader>b :NERDTreeToggle<CR>
 map <Leader><S-f> gg=G
