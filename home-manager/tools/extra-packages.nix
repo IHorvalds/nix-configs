@@ -9,6 +9,8 @@
 
     bat
     devenv
+    direnv
+    glade
 
     ghostty
     fzf-make
