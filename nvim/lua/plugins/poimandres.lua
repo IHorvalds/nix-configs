@@ -7,7 +7,5 @@ return {
             bold_vert_split = true,
             dim_nc_background = true
         })
-    end,
-
-    init = function() vim.cmd("colorscheme poimandres") end
+    end
 }
