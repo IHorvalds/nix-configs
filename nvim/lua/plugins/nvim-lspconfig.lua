@@ -102,6 +102,11 @@ return { -- LSP Configuration & Plugins
             rust_analyzer = {}
         }
 
+        local lspcfg = require("lspconfig")
+        for srv, val in pairs(servers) do
+          lspcfg[srv].setup(val or {})
+        end
+
         if vim.fn.executable("clangd") == 1 then
             require("lspconfig").clangd.setup({
                 on_attach = function()
