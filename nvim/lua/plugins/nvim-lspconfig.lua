@@ -69,7 +69,7 @@ return { -- LSP Configuration & Plugins
                 if client and client.server_capabilities.inlayHintProvider and
                     vim.lsp.inlay_hint then
                     -- Enable inlay hints by default
-                    vim.ksp.inlay_hint.enable = true
+                    vim.lsp.inlay_hint.enable = true
                     map("<leader>th", function()
                         vim.lsp.inlay_hint.enable(
                             not vim.lsp.inlay_hint.is_enabled({}))
@@ -98,7 +98,8 @@ return { -- LSP Configuration & Plugins
                 }
             },
             gopls = {},
-            pylsp = {cmd = {"pylsp"}}
+            pylsp = {cmd = {"pylsp"}},
+            rust_analyzer = {}
         }
 
         if vim.fn.executable("clangd") == 1 then
