@@ -1,16 +1,16 @@
 return { -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",
     dependencies = {
-        {"j-hui/fidget.nvim", opts = {}}, {"folke/neodev.nvim", opts = {}}
+        { "j-hui/fidget.nvim", opts = {} }, { "folke/neodev.nvim", opts = {} }
     },
     config = function()
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("kickstart-lsp-attach",
-                                                {clear = true}),
+                { clear = true }),
             callback = function(event)
                 local map = function(keys, func, desc)
                     vim.keymap.set("n", keys, func,
-                                   {buffer = event.buf, desc = "LSP: " .. desc})
+                        { buffer = event.buf, desc = "LSP: " .. desc })
                 end
 
                 map("gd", require("telescope.builtin").lsp_definitions,
@@ -37,23 +37,23 @@ return { -- LSP Configuration & Plugins
                     client.server_capabilities.documentHighlightProvider then
                     local highlight_augroup =
                         vim.api.nvim_create_augroup("kickstart-lsp-highlight",
-                                                    {clear = false})
-                    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+                            { clear = false })
+                    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
                         buffer = event.buf,
                         group = highlight_augroup,
                         callback = vim.lsp.buf.document_highlight
                     })
 
-                    vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"},
-                                                {
-                        buffer = event.buf,
-                        group = highlight_augroup,
-                        callback = vim.lsp.buf.clear_references
-                    })
+                    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
+                        {
+                            buffer = event.buf,
+                            group = highlight_augroup,
+                            callback = vim.lsp.buf.clear_references
+                        })
 
                     vim.api.nvim_create_autocmd("LspDetach", {
                         group = vim.api.nvim_create_augroup(
-                            "kickstart-lsp-detach", {clear = true}),
+                            "kickstart-lsp-detach", { clear = true }),
                         callback = function(event2)
                             vim.lsp.buf.clear_references()
                             vim.api.nvim_clear_autocmds({
@@ -84,14 +84,14 @@ return { -- LSP Configuration & Plugins
         --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = vim.tbl_deep_extend("force", capabilities, require(
-                                               "cmp_nvim_lsp").default_capabilities())
+            "cmp_nvim_lsp").default_capabilities())
 
         local servers = {
             lua_ls = {
-                cmd = {"lua-language-server"},
+                cmd = { "lua-language-server" },
                 settings = {
                     Lua = {
-                        completion = {callSnippet = "Replace"}
+                        completion = { callSnippet = "Replace" }
                         -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
                         -- diagnostics = { disable = { 'missing-fields' } },
                     }
@@ -99,7 +99,8 @@ return { -- LSP Configuration & Plugins
             },
             gopls = {},
             pylsp = {cmd = {"pylsp"}},
-            rust_analyzer = {}
+            rust_analyzer = {},
+            ts_ls = {}
         }
 
         local lspcfg = require("lspconfig")
@@ -111,12 +112,12 @@ return { -- LSP Configuration & Plugins
             require("lspconfig").clangd.setup({
                 on_attach = function()
                     vim.keymap.set("n", "<leader>o",
-                                   ":ClangdSwitchSourceHeader<CR>")
+                        ":ClangdSwitchSourceHeader<CR>")
                     vim.keymap
                         .set("n", "<leader>i", ":ClangdShowSymbolInfo<CR>")
                 end
             })
         end
     end,
-    opts = {features = {inlay_hints = {enabled = true}}}
+    opts = { features = { inlay_hints = { enabled = true } } }
 }
