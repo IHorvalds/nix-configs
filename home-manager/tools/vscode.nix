@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    keybindings = [
+    profiles.default.keybindings = [
       {
         command = "workbench.action.focusRightGroup";
         key = "ctrl+w RightArrow";
