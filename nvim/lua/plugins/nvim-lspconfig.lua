@@ -64,6 +64,14 @@ return { -- LSP Configuration & Plugins
                     })
                 end
 
+                -- Autocompletion
+                if client and client:supports_method("textDocument/completion") then
+                    vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+                end
+
+                -- Diagnostic position
+                vim.diagnostic.config({ virtual_lines = true })
+
                 -- The following autocommand is used to enable inlay hints in your
                 -- code, if the language server you are using supports them
                 if client and client.server_capabilities.inlayHintProvider and
@@ -91,21 +99,19 @@ return { -- LSP Configuration & Plugins
                 cmd = { "lua-language-server" },
                 settings = {
                     Lua = {
-                        completion = { callSnippet = "Replace" }
-                        -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                        -- diagnostics = { disable = { 'missing-fields' } },
+                        completion = { callSnippet = "Replace" },
                     }
                 }
             },
             gopls = {},
-            pylsp = {cmd = {"pylsp"}},
+            pylsp = { cmd = { "pylsp" } },
             rust_analyzer = {},
             ts_ls = {}
         }
 
         local lspcfg = require("lspconfig")
         for srv, val in pairs(servers) do
-          lspcfg[srv].setup(val or {})
+            lspcfg[srv].setup(val or {})
         end
 
         if vim.fn.executable("clangd") == 1 then

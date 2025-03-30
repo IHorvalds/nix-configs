@@ -74,8 +74,6 @@ nmap th :tabprevious<CR>
 nmap tl :tabnext<CR>
 nmap tc :tabclose<CR>
 
-" Close current split
-nmap wc <C-w>c
 " Move between splits
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
