@@ -64,10 +64,6 @@ return { -- LSP Configuration & Plugins
                     })
                 end
 
-                -- Autocompletion
-                if client and client:supports_method("textDocument/completion") then
-                    vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-                end
 
                 -- Diagnostic position
                 vim.diagnostic.config({ virtual_lines = true })
