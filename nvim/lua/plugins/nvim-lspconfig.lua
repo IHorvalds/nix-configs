@@ -75,8 +75,8 @@ return { -- LSP Configuration & Plugins
                     -- Enable inlay hints by default
                     vim.lsp.inlay_hint.enable = true
                     map("<leader>th", function()
-                        vim.lsp.inlay_hint.enable(
-                            not vim.lsp.inlay_hint.is_enabled({}))
+                        vim.lsp.inlay_hint.enable =
+                            not vim.lsp.inlay_hint.is_enabled({})
                     end, "[T]oggle Inlay [H]ints")
                 end
             end
@@ -102,23 +102,25 @@ return { -- LSP Configuration & Plugins
             gopls = {},
             pylsp = { cmd = { "pylsp" } },
             rust_analyzer = {},
-            ts_ls = {}
-        }
-
-        local lspcfg = require("lspconfig")
-        for srv, val in pairs(servers) do
-            lspcfg[srv].setup(val or {})
-        end
-
-        if vim.fn.executable("clangd") == 1 then
-            require("lspconfig").clangd.setup({
+            ts_ls = {},
+            qmlls = { cmd = { os.getenv("HOME") .. "/Qt/6.8.3/gcc_64/bin/qmlls" } },
+            cmake = {
+                cmd = { "cmake-language-server" },
+                filetypes = { "cmake", "CMakeLists.txt" }
+            },
+            clangd = {
                 on_attach = function()
                     vim.keymap.set("n", "<leader>o",
                         ":ClangdSwitchSourceHeader<CR>")
                     vim.keymap
                         .set("n", "<leader>i", ":ClangdShowSymbolInfo<CR>")
                 end
-            })
+            }
+        }
+
+        local lspcfg = require("lspconfig")
+        for srv, val in pairs(servers) do
+            lspcfg[srv].setup(val or {})
         end
     end,
     opts = { features = { inlay_hints = { enabled = true } } }
