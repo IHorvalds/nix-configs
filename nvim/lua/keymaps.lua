@@ -52,6 +52,14 @@ vim.keymap.set("n", "<leader>h", "b",
 vim.keymap
     .set("n", "<leader>cc", ":cclose<CR>", { desc = "Close quick fix list" })
 vim.keymap.set("n", "<leader>co", ":copen<CR>", { desc = "Open quick fix list" })
+vim.keymap.set("n", "<leader>cn", ":cnext<CR>", { desc = "Next entry in quick fix" })
+vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { desc = "Previous entry in quick fix" })
 
 -- Overscroll
-vim.keymap.set("n", "<expr>j", "line('.') == line('$') ? '<C-e>' : 'j'")
+vim.keymap.set("n", "j", function()
+    if vim.fn.line('.') == vim.fn.line('$') then
+        return '<c-e>'
+    else 
+        return '<down>'
+    end
+end, { remap = true, expr = true, desc = "Overscroll" })
