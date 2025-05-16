@@ -24,8 +24,8 @@ return {
         --   },
         -- }
 
-        vim.keymap.set("n", "br", dap.toggle_breakpoint)
-        vim.keymap.set("n", "gb", dap.run_to_cursor)
+        vim.keymap.set("n", "<leader>br", dap.toggle_breakpoint)
+        vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
 
         -- GDB for C and C++
         if vim.fn.executable('gdb') == 1 then
