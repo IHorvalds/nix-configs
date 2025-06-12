@@ -27,6 +27,12 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = { preset = 'super-tab' },
 
+    snippets = {
+      expand = function(snippet, _)
+        return LazyVim.cmd.expand(snippet)
+      end,
+    },
+
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
@@ -34,7 +40,8 @@ return {
     },
 
     -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    completion = { documentation = { auto_show = true }, ghost_text = { enabled = vim.g.ai_cmp } },
+
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
