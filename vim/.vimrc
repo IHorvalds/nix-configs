@@ -25,6 +25,7 @@ Plug 'nordtheme/vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
+Plug 'mbbill/undotree'
 
 " LSP configurations
 Plug 'prabirshrestha/vim-lsp'
