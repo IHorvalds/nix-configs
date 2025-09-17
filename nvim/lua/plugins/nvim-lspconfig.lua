@@ -115,7 +115,7 @@ return { -- LSP Configuration & Plugins
         local lspcfg = require("lspconfig")
         for srv, val in pairs(servers) do
             val.capabilities = caps
-            lspcfg[srv].setup(val or { capabilities = caps})
+            lspcfg[srv].setup(val or { capabilities = caps })
         end
     end,
     opts = { features = { inlay_hints = { enabled = true } } }

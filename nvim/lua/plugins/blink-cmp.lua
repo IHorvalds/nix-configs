@@ -27,12 +27,6 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = { preset = 'super-tab' },
 
-    snippets = {
-      expand = function(snippet, _)
-        return LazyVim.cmd.expand(snippet)
-      end,
-    },
-
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned

@@ -1,0 +1,17 @@
+# Compilation databases
+compile_commands.json
+.cache/
+
+# build folders
+build/
+host-build/
+hostbuild/
+target-build/
+targetbuild/
+
+# CLion
+.idea
+cmake-build-*
+
+# VSCode
+.vscode

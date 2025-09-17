@@ -1,7 +1,5 @@
-# BASH prompt + ssh-agent
+# BASH tools and utilities
 
-`source` the user-prompt.sh in any non-user's .bashrc for nice colours.
-`source` the root-prompt.sh in /root/.bashrc for even cooler colours.
+Expects tools to be available in `/usr/local/my_tools/`
 
-`source` ssh-agent.sh in the non-user's .bashrc to load all the private keys in ~/.ssh.
-I hate having to do that manually every time I set up a new machine.
+Expects the directory `$HOME/.bashrc.d` to exist. Stow the contents of `bashrc.d` into that directory.

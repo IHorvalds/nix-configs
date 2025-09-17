@@ -59,7 +59,10 @@ vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { desc = "Previous entry in quic
 vim.keymap.set("n", "j", function()
     if vim.fn.line('.') == vim.fn.line('$') then
         return '<c-e>'
-    else 
+    else
         return '<down>'
     end
 end, { remap = true, expr = true, desc = "Overscroll" })
+
+-- Save without formatting
+vim.cmd('cnoreabbrev ww "noa w"')
