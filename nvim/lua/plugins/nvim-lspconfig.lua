@@ -96,7 +96,16 @@ return { -- LSP Configuration & Plugins
             pylsp = { cmd = { "pylsp" } },
             rust_analyzer = {},
             ts_ls = {},
-            qmlls = { cmd = { os.getenv("HOME") .. "/Qt/6.8.3/gcc_64/bin/qmlls" } },
+            qmlls = {
+                cmd = { (function()
+                    local handle = assert(io.popen("locate -e -0 --limit 1 bin/qmlls"))
+                    local output = assert(handle:read("*a"))
+
+                    handle:close()
+
+                    return string.gsub(output, "\0", "")
+                end)() }
+            },
             cmake = {
                 cmd = { "cmake-language-server" },
                 filetypes = { "cmake", "CMakeLists.txt" }
