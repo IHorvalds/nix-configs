@@ -11,4 +11,4 @@ function show_current_branch() {
         echo 
 }
 # Set PS1 if not already set
-PS1='\[\e[38;5;220m\]\u\[\e[37m\]@\[\e[38;5;208m\]\h\[\e[0m\] \[\e[37;3m\]\W\[\e[0m\]\[\e[38;5;45m\] $(show_current_branch)\[\e[0m\]\n\$ '
+PS1='\[\e[38;5;171m\]\u\[\e[0m\]@\[\e[38;5;75;1m\]\h\[\e[0m\] \[\e[37;3m\]\W\[\e[0m\]\[\e[38;5;45m\] $(show_current_branch)\[\e[0m\]\n\$ '
