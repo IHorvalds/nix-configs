@@ -98,12 +98,13 @@ return { -- LSP Configuration & Plugins
             ts_ls = {},
             qmlls = {
                 cmd = { (function()
-                    local handle = assert(io.popen("locate -e -0 --limit 1 bin/qmlls"))
+                    local handle = assert(io.popen(
+                        'locate -e bin/qmlls | grep -E -ve "(sysroot)|(debug)" | grep -E "(^/usr)|(Tools)" | head -n 1'))
                     local output = assert(handle:read("*a"))
 
                     handle:close()
 
-                    return string.gsub(output, "\0", "")
+                    return string.gsub(output, "\n", "")
                 end)() }
             },
             cmake = {
@@ -121,10 +122,10 @@ return { -- LSP Configuration & Plugins
         }
 
         local caps = require("blink.cmp").get_lsp_capabilities()
-        local lspcfg = require("lspconfig")
         for srv, val in pairs(servers) do
             val.capabilities = caps
-            lspcfg[srv].setup(val or { capabilities = caps })
+            vim.lsp.config(srv, (val or { capabilities = caps }))
+            vim.lsp.enable(srv)
         end
     end,
     opts = { features = { inlay_hints = { enabled = true } } }

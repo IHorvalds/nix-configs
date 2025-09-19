@@ -15,6 +15,14 @@ if [[ $PATH != *"$MY_TOOLS_PATH"* ]]; then
 	export PATH=$MY_TOOLS_PATH:$PATH
 fi
 
+# Go tools if go is installed
+if [[ $(command -v go 2> /dev/null) ]]; then
+	GOPATH=$(go env GOPATH)
+	if [[ -d $GOPATH/bin && $PATH != *"$GOPATH"* ]]; then
+		export PATH=$GOPATH/bin:$PATH
+	fi
+fi
+
 if [[ $(type -t _direnv_hook) != function ]]; then
-  eval "$(direnv hook bash)"
+	eval "$(direnv hook bash)"
 fi
