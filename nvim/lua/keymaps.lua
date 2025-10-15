@@ -63,6 +63,3 @@ vim.keymap.set("n", "j", function()
         return '<down>'
     end
 end, { remap = true, expr = true, desc = "Overscroll" })
-
--- Save without formatting
-vim.cmd('cnoreabbrev ww "noa w"')

@@ -12,5 +12,12 @@ function mkcdir() {
   mkdir -p -- "$1"; cd -P -- "$1"
 }
 
-alias clippy='wl-copy'
-alias notify='notify-send -w -a "PID $! is done" "Command is done" --hint=string:sound-file:/usr/share/sounds/ocean/stereo/outcome-success.oga'
+alias tas="tmux new -A -s "
+alias reboot="sleep 10 && reboot"
+
+if [[ $OSTYPE == *"linux"* ]]; then
+  alias clippy='wl-copy'
+  alias notify='notify-send -w -a "PID $! is done" "Command is done" --hint=string:sound-file:/usr/share/sounds/ocean/stereo/outcome-success.oga'
+elif [[ $OSTYPE == *"darwin"* ]]; then
+  alias clippy="pbcopy"
+fi
