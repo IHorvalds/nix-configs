@@ -59,8 +59,8 @@ if has("termguicolors")
   set termguicolors
 endif
 
-so ~/vimcfgs/language-servers.vim
-so ~/vimcfgs/ack.vim
+so ~/.config/vim/language-servers.vim
+so ~/.config/vim/ack.vim
 
 " Keymaps
 map <Leader><Leader> :Buffers<CR>
