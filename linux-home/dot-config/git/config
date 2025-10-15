@@ -5,5 +5,3 @@
   path = defaults.conf
   path = creds.conf
 
-[includeIf "gitdir:/home/dcroitoru"]
-  path = work.conf
