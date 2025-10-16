@@ -12,7 +12,7 @@ function mkcdir() {
   mkdir -p -- "$1"; cd -P -- "$1"
 }
 
-alias tas="tmux new -A -s "
+alias tas="tmux new -A -c ~ -s "
 alias reboot="sleep 10 && reboot"
 
 if [[ $OSTYPE == *"linux"* ]]; then
