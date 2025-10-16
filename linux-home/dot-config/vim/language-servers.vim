@@ -19,9 +19,9 @@ function! s:on_lsp_buffer_enabled() abort
     " refer to doc to add more commands
 endfunction
 
-so ~/vimcfgs/pylsp.vim
-so ~/vimcfgs/luals.vim
-so ~/vimcfgs/clangd.vim
+execute 'source ' . g:vimCfgDir . '/pylsp.vim'
+execute 'source ' . g:vimCfgDir . '/luals.vim'
+execute 'source ' . g:vimCfgDir . '/clangd.vim'
 
 
 augroup lsp_install

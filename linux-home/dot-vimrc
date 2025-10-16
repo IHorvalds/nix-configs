@@ -5,6 +5,8 @@ set noautochdir
 set hlsearch
 set noshowmode
 
+let g:vimCfgDir = "~/.config/vim"
+
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
@@ -47,8 +49,8 @@ set tabstop=2
 set undodir="tmp"
 set undofile
 
-colorscheme nord
-let g:airline_theme="nord"
+colorscheme sorbet
+let g:airline_theme="soda"
 let g:move_key_modifier_visualmode='C'
 let g:airline_powerline_fonts=1
 let g:NERDTreeHijackNetrw=0
@@ -59,8 +61,8 @@ if has("termguicolors")
   set termguicolors
 endif
 
-so ~/.config/vim/language-servers.vim
-so ~/.config/vim/ack.vim
+execute 'source ' . g:vimCfgDir . '/language-servers.vim'
+execute 'source ' . g:vimCfgDir . '/ack.vim'
 
 " Keymaps
 map <Leader><Leader> :Buffers<CR>
