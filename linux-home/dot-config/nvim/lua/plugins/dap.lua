@@ -8,8 +8,8 @@ return {
         "williamboman/mason.nvim",
     },
     config = function()
-        local dap = require "dap"
-        local ui = require "dapui"
+        local dap = require("dap")
+        local ui = require("dapui")
 
         require("dapui").setup()
         require("dap-go").setup()
@@ -25,11 +25,11 @@ return {
         -- }
 
         vim.keymap.set("n", "<leader>br", dap.toggle_breakpoint)
-        vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
+        vim.keymap.set("n", "<leader>rc", dap.run_to_cursor)
 
         -- GDB for C and C++
-        if vim.fn.executable('gdb') == 1 then
-            require('plugins.debuggers.gdb')
+        if vim.fn.executable("gdb") == 1 then
+            require("plugins.debuggers.gdb")
         end
 
         -- Eval var under cursor

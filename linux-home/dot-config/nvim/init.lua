@@ -10,9 +10,10 @@ require("keymaps")
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank",
-                                        {clear = true}),
-    callback = function() vim.highlight.on_yank() end
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
@@ -21,13 +22,17 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     vim.fn.system({
-        "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo,
-        lazypath
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "--branch=stable",
+        lazyrepo,
+        lazypath,
     })
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({{import = "plugins"}}, {
+require("lazy").setup({ { import = "plugins" } }, {
     ui = {
         icons = vim.g.have_nerd_font and {} or {
             cmd = "⌘",
@@ -42,9 +47,9 @@ require("lazy").setup({{import = "plugins"}}, {
             source = "📄",
             start = "🚀",
             task = "📌",
-            lazy = "💤 "
-        }
-    }
+            lazy = "💤 ",
+        },
+    },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

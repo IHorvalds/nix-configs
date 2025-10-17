@@ -1,4 +1,4 @@
 return {
-  "hiphish/rainbow-delimiters.nvim",
-  lazy = false,
+    "hiphish/rainbow-delimiters.nvim",
+    lazy = false,
 }
