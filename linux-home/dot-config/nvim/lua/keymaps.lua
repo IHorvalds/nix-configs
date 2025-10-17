@@ -36,6 +36,13 @@ vim.keymap.set("n", "th", ":tabprevious<CR>", { desc = "Move to previous tab" })
 vim.keymap.set("n", "tl", ":tabnext<CR>", { desc = "Move to next tab" })
 vim.keymap.set("n", "tc", ":tabclose<CR>", { desc = "Close current tab" })
 
+-- Move, close, navigate buffers
+vim.keymap.set("n", "bh", ":BufferPrevious<CR>", { desc = "Move to previous buffer" })
+vim.keymap.set("n", "bl", ":BufferNext<CR>", { desc = "Move to next buffer" })
+vim.keymap.set("n", "bcc", ":BufferClose<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "bca", ":BufferCloseAll<CR>:BufferClose", { desc = "Close all buffers" })
+vim.keymap.set("n", "bco", ":BufferCloseAllButCurrentOrPinner<CR>", { desc = "Close all other buffers except pinned" })
+
 -- Move between words simpler
 vim.keymap.set("n", "<leader>l", "e", { desc = "Simpler map to end of word" })
 vim.keymap.set("n", "<leader>h", "b", { desc = "Simpler map to beginning of word" })

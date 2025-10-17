@@ -32,22 +32,22 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
                 end)
 
                 -- Actions
-                vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk)
-                vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
+                vim.keymap.set("n", "<leader>ghs", gitsigns.stage_hunk)
+                vim.keymap.set("n", "<leader>ghr", gitsigns.reset_hunk)
 
-                vim.keymap.set("v", "<leader>hs", function()
+                vim.keymap.set("v", "<leader>ghs", function()
                     gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
                 end)
 
-                vim.keymap.set("v", "<leader>hr", function()
+                vim.keymap.set("v", "<leader>ghr", function()
                     gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
                 end)
 
                 -- Preview
-                vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk)
-                vim.keymap.set("n", "<leader>hi", gitsigns.preview_hunk_inline)
+                vim.keymap.set("n", "<leader>ghp", gitsigns.preview_hunk)
+                vim.keymap.set("n", "<leader>ghi", gitsigns.preview_hunk_inline)
 
-                vim.keymap.set("n", "<leader>hd", gitsigns.diffthis)
+                vim.keymap.set("n", "<leader>ghd", gitsigns.diffthis)
             end,
         })
     end,
