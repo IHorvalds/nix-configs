@@ -4,14 +4,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
     branch = "0.1.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "debugloop/telescope-undo.nvim",
         { "nvim-telescope/telescope-ui-select.nvim" },
         { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
     },
     config = function()
         require("telescope").setup({
             extensions = {
-                ["ui-select"] = { require("telescope.themes").get_dropdown() },
-                undo = {},
+                ["ui-select"] = { require("telescope.themes").get_dropdown({}) },
+                undo = {
+                    use_delta = false,
+                },
             },
         })
 
@@ -19,6 +22,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
         pcall(require("telescope").load_extension, "fzf")
         pcall(require("telescope").load_extension, "ui-select")
         pcall(require("telescope").load_extension, "grep_string")
+        pcall(require("telescope").load_extension, "undo")
+
 
         -- See `:help telescope.builtin`
         local builtin = require("telescope.builtin")
@@ -48,5 +53,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
                 prompt_title = "Live Grep in Open Files",
             })
         end, { desc = "Search in Open Files" })
+
+        vim.keymap.set("n", "<leader>u", ":Telescope undo<CR>", { desc = "Undo tree" })
     end,
 }

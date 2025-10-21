@@ -12,9 +12,12 @@ return {
             close_if_last_window = true,
             enable_git_status = true,
             enable_diagnostics = true,
-            use_libuv_file_watcher = false,
+            filesystem = {
+                use_libuv_file_watcher = false,
+                window = { position = "float" }
+            }
         })
 
-        vim.keymap.set("n", "<leader>b", ":Neotree filesystem toggle float<CR>", {})
+        vim.keymap.set("n", "<leader>b", ":Neotree filesystem toggle<CR>", {})
     end,
 }
