@@ -41,7 +41,7 @@ vim.keymap.set("n", "bh", ":BufferPrevious<CR>", { desc = "Move to previous buff
 vim.keymap.set("n", "bl", ":BufferNext<CR>", { desc = "Move to next buffer" })
 vim.keymap.set("n", "bcc", ":BufferClose<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "bca", ":BufferCloseAll<CR>:BufferClose", { desc = "Close all buffers" })
-vim.keymap.set("n", "bco", ":BufferCloseAllButCurrentOrPinner<CR>", { desc = "Close all other buffers except pinned" })
+vim.keymap.set("n", "bco", ":BufferCloseAllButCurrentOrPinned<CR>", { desc = "Close all other buffers except pinned" })
 
 -- Move between words simpler
 vim.keymap.set("n", "<leader>l", "e", { desc = "Simpler map to end of word" })
