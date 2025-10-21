@@ -85,6 +85,10 @@ return { -- LSP Configuration & Plugins
             qmlls = {
                 cmd = {
                     (function()
+                        if vim.loop.os_uname().sysname == 'Darwin' then
+                            return ""
+                        end
+
                         local handle = assert(
                             io.popen(
                                 'locate -e bin/qmlls | grep -E -ve "(sysroot)|(debug)" | grep -E "(^/usr)|(Tools)" | head -n 1'
