@@ -17,17 +17,18 @@ Plug 'bling/vim-bufferline'
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'preservim/nerdtree'
+Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-commentary'
 Plug 'romainl/vim-cool'
 Plug 'matze/vim-move'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'cespare/vim-toml'
-Plug 'nordtheme/vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mileszs/ack.vim'
 Plug 'mbbill/undotree'
+Plug 'thinca/vim-breadcrumbs'
 
 " LSP configurations
 Plug 'prabirshrestha/vim-lsp'
@@ -49,8 +50,8 @@ set tabstop=2
 set undodir="tmp"
 set undofile
 
-colorscheme sorbet
-let g:airline_theme="soda"
+colorscheme codedark
+let g:airline_theme="codedark"
 let g:move_key_modifier_visualmode='C'
 let g:airline_powerline_fonts=1
 let g:NERDTreeHijackNetrw=0
