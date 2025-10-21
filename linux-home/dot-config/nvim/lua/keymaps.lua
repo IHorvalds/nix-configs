@@ -61,3 +61,11 @@ vim.keymap.set("n", "j", function()
         return "<down>"
     end
 end, { remap = true, expr = true, desc = "Overscroll" })
+
+-- Add parentheses, quotes, double quotes and backticks on selection
+vim.keymap.set("v", "<leader>(", "c(<C-c>pa)<C-c>", { desc = "Add parentheses around selection" })
+vim.keymap.set("v", "<leader>[", "c[<C-c>pa]<C-c>", { desc = "Add square brackets around selection" })
+vim.keymap.set("v", "<leader>{", "c{<C-c>pa}<C-c>", { desc = "Add brackets around selection" })
+vim.keymap.set("v", '<leader>"', 'c"<C-c>pa"<C-c>', { desc = "Add double quotes around selection" })
+vim.keymap.set("v", "<leader>'", "c'<C-c>pa'<C-c>", { desc = "Add quotes around selection" })
+vim.keymap.set("v", "<leader>`", "c`<C-c>pa`<C-c>", { desc = "Add backticks around selection" })
