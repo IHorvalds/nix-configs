@@ -23,6 +23,6 @@ if [[ $(command -v go 2> /dev/null) ]]; then
 	fi
 fi
 
-if [[ $(command -v direnv 2 > /dev/null) && $(type -t _direnv_hook) != function ]]; then
+if $(command -v direnv 2 > /dev/null) && [[ $(type -t _direnv_hook) != function ]]; then
 	eval "$(direnv hook bash)"
 fi
