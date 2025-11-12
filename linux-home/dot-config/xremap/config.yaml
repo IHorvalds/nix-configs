@@ -1,0 +1,7 @@
+modmap:
+  - remap:
+      KEY_102ND: KEY_GRAVE
+      KEY_GRAVE: KEY_102ND
+      KEY_RIGHTALT: KEY_LEFTALT
+    device:
+      only: 'Keychron K2'

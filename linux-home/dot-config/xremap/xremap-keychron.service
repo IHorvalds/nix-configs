@@ -1,0 +1,8 @@
+[Unit]
+Description=Run xremap for Keychron K2
+After=basic.target
+
+[Service]
+ExecStart=/usr/bin/xremap --watch /home/dcroitoru/.config/xremap/config.yaml
+Restart=always
+RestartSec=1
