@@ -1,6 +1,7 @@
 -- Vim options
 require("options")
 require("keymaps")
+require("term-window")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -50,7 +51,7 @@ require("lazy").setup({ { import = "plugins" } }, {
             lazy = "💤 ",
         },
     },
-})
+}, { { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" } })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

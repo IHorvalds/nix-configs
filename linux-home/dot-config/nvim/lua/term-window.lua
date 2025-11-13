@@ -1,0 +1,1 @@
+-- open a terminal window in the $cwd
