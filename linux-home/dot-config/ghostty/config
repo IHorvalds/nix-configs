@@ -1,6 +1,7 @@
 font-family=JetBrainsMono Nerd Font
+font-size=10
 background = 1b1e28
-background-opacity = 0.7
+background-opacity = 0.85
 background-blur = true
 foreground = a6accd
 palette = 0=1B1E28

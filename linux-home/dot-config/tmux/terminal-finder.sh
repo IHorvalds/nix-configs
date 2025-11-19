@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+term_str=" "
 if [ -n "$TERM" ] && [ "$TERM" == "xterm-ghostty" ]; then
-  echo "👻"
+  term_str+=""
 else
-  echo ""
+  term_str+=""
 fi
 
+echo "$term_str"

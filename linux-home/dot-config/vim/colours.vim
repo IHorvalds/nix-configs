@@ -3,6 +3,8 @@ if has("termguicolors")
   set termguicolors
 endif
 
+let g:codedark_transparent=1
+let g:codedark_italics=1
 colorscheme codedark
 
 " Status line
