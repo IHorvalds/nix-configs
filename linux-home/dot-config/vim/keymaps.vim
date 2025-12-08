@@ -37,9 +37,9 @@ nmap <Leader>co :copen<CR>
 nnoremap <expr> j line(".") == line('$') ? '<C-e>':'j'
 
 " Add parentheses, quotes, double quotes and backticks on selection
-vnoremap <Leader>( "c(<C-c>pa)<C-c>"
-vnoremap <leader>[ "c[<C-c>pa]<C-c>"
-vnoremap <leader>{ "c{<C-c>pa}<C-c>"
-vnoremap <leader>" 'c"<C-c>pa"<C-c>'
-vnoremap <leader>' "c'<C-c>pa'<C-c>"
-vnoremap <leader>` "c`<C-c>pa`<C-c>"
+vnoremap <Leader>( c(<C-r>")<ESC>
+vnoremap <leader>[ c[<C-r>"]<ESC>
+vnoremap <leader>{ c{<C-r>"}<ESC>
+vnoremap <leader>" c"<C-r>""<ESC>
+vnoremap <leader>' c'<C-r>"'<ESC>
+vnoremap <leader>` c`<C-r>"`<ESC>
