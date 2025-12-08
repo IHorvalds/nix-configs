@@ -5,7 +5,7 @@ if [[ $PATH != *"$VCPKG_PATH"* && -x $VCPKG_PATH/vcpkg ]]; then
 	export PATH=$VCPKG_PATH:$PATH
 	
 	if [[ -f $VCPKG_PATH/scripts/vcpkg_completion.bash ]]; then
-		source $VCPKG_PATH/scripts/vcpkg_completion.bash
+		source "$VCPKG_PATH/scripts/vcpkg_completion.bash"
 	fi
 
 fi
@@ -16,13 +16,21 @@ if [[ $PATH != *"$MY_TOOLS_PATH"* ]]; then
 fi
 
 # Go tools if go is installed
-if [[ $(command -v go 2> /dev/null) ]]; then
+if command -v go 1,2>/dev/null; then
 	GOPATH=$(go env GOPATH)
 	if [[ -d $GOPATH/bin && $PATH != *"$GOPATH"* ]]; then
 		export PATH=$GOPATH/bin:$PATH
 	fi
 fi
 
-if $(command -v direnv 2 > /dev/null) && [[ $(type -t _direnv_hook) != function ]]; then
+if command -v direnv 1,2>/dev/null && [[ $(type -t _direnv_hook) != function ]]; then
 	eval "$(direnv hook bash)"
+fi
+
+# Rust tools if cargo is installed
+if command -v cargo 1,2> /dev/null; then
+        CARGO_BIN=$HOME/.cargo/bin
+        if [[ -d "$CARGO_BIN" && $PATH != *"$CARGO_BIN"* ]]; then
+                export PATH=$CARGO_BIN:$PATH    
+        fi
 fi
