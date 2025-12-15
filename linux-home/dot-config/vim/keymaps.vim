@@ -1,11 +1,12 @@
 " Keymaps
-map <Leader><Leader> :Buffers<CR>
+map <leader><leader> :Buffers<CR>
 map <C-p> :Files<CR>
 map <C-f> :BLines<CR>
-map <Leader>f :LfNewTab<CR>
-map <Leader>b :NERDTreeToggle<CR>
-map <Leader><S-f> gg=G
+map <leader>f :LfNewTab<CR>
+map <leader>b :NERDTreeToggle<CR>
+map <leader><S-f> gg=G
 nmap <C-a> ggVG
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Tabs
 nmap th :tabprevious<CR>
@@ -26,18 +27,18 @@ nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
 
 " Move between words
-nmap <Leader>h b
-nmap <Leader>l w
+nmap <leader>h b
+nmap <leader>l w
 
 " Quickfix list
-nmap <Leader>cc :cclose<CR>
-nmap <Leader>co :copen<CR>
+nmap <leader>cc :cclose<CR>
+nmap <leader>co :copen<CR>
 
 " Overscroll
 nnoremap <expr> j line(".") == line('$') ? '<C-e>':'j'
 
 " Add parentheses, quotes, double quotes and backticks on selection
-vnoremap <Leader>( c(<C-r>")<ESC>
+vnoremap <leader>( c(<C-r>")<ESC>
 vnoremap <leader>[ c[<C-r>"]<ESC>
 vnoremap <leader>{ c{<C-r>"}<ESC>
 vnoremap <leader>" c"<C-r>""<ESC>

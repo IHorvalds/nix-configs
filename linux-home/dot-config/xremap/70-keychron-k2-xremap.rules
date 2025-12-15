@@ -1,1 +1,1 @@
-ACTION=="add", SUBSYSTEM=="input", ATTRS{name}=="Keychron K2", TAG+="systemd", ENV{SYSTEMD_WANTS}="xremap-keychron.service"
+ACTION=="add", SUBSYSTEM=="input", ATTRS{name}=="Keychron *K2", SYMLINK+="input/keychron_k2", TAG+="systemd", ENV{SYSTEMD_WANTS}="xremap-keychron.service"

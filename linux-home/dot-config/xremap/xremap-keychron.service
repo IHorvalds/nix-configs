@@ -1,6 +1,7 @@
 [Unit]
 Description=Run xremap for Keychron K2
 After=basic.target
+BindsTo=dev-input-keychron_k2.device
 
 [Service]
 ExecStart=/usr/bin/xremap --watch /home/dcroitoru/.config/xremap/config.yaml

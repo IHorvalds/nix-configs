@@ -4,4 +4,4 @@ modmap:
       KEY_GRAVE: KEY_102ND
       KEY_RIGHTALT: KEY_LEFTALT
     device:
-      only: 'Keychron K2'
+      only: '/dev/input/keychron_k2'

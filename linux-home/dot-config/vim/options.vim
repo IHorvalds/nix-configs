@@ -7,5 +7,5 @@ set shiftwidth=2
 set smartcase
 set tabstop=2
 
-set undodir="tmp"
+set undodir=~/.vim/undodir
 set undofile
