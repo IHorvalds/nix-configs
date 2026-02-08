@@ -13,11 +13,11 @@ nmap tl :tabnext<CR>
 nmap tc :tabclose<CR>
 
 " Buffers
-nmap bh :bprevious<CR>
-nmap bl :bnext<CR>
-nmap bca :%bd<CR>
-nmap bco :%bd\|e#<CR>
-nmap bcc :bdelete<CR>
+nmap [b :bprevious<CR>
+nmap ]b :bnext<CR>
+nmap <leader>bca :%bd<CR>
+nmap <leader>bco :%bd\|e#<CR>
+nmap <leader>bcc :bdelete<CR>
 
 " Move between splits
 nmap <C-h> <C-w>h

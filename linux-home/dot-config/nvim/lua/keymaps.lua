@@ -37,11 +37,16 @@ vim.keymap.set("n", "tl", ":tabnext<CR>", { desc = "Move to next tab" })
 vim.keymap.set("n", "tc", ":tabclose<CR>", { desc = "Close current tab" })
 
 -- Move, close, navigate buffers
-vim.keymap.set("n", "bh", ":BufferPrevious<CR>", { desc = "Move to previous buffer" })
-vim.keymap.set("n", "bl", ":BufferNext<CR>", { desc = "Move to next buffer" })
-vim.keymap.set("n", "bcc", ":BufferClose<CR>", { desc = "Close current buffer" })
-vim.keymap.set("n", "bca", ":BufferCloseAll <bar> BufferClose<CR>", { desc = "Close all buffers" })
-vim.keymap.set("n", "bco", ":BufferCloseAllButCurrentOrPinned<CR>", { desc = "Close all other buffers except pinned" })
+vim.keymap.set("n", "[b", ":BufferPrevious<CR>", { desc = "Move to previous buffer" })
+vim.keymap.set("n", "]b", ":BufferNext<CR>", { desc = "Move to next buffer" })
+vim.keymap.set("n", "<leader>bcc", ":BufferClose<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>bca", ":BufferCloseAllButCurrent<CR> | :BufferClose<CR>", { desc = "Close all buffers" })
+vim.keymap.set(
+    "n",
+    "<leader>bco",
+    ":BufferCloseAllButCurrentOrPinned<CR>",
+    { desc = "Close all other buffers except pinned" }
+)
 
 -- Move between words simpler
 vim.keymap.set("n", "<leader>l", "e", { desc = "Simpler map to end of word" })
