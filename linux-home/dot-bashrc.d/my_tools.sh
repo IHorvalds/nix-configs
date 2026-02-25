@@ -4,8 +4,9 @@ VCPKG_PATH=$HOME/Tools/Utilities/vcpkg
 if [[ $PATH != *"$VCPKG_PATH"* && -x $VCPKG_PATH/vcpkg ]]; then
 	export PATH=$VCPKG_PATH:$PATH
 	
-	if [[ -f $VCPKG_PATH/scripts/vcpkg_completion.bash ]]; then
-		source "$VCPKG_PATH/scripts/vcpkg_completion.bash"
+	VCPKG_COMP_BASH="vcpkg_completion.bash"
+	if [[ -f $VCPKG_PATH/scripts/$VCPKG_COMP_BASH ]]; then
+		source "$VCPKG_PATH/scripts/$VCPKG_COMP_BASH"
 	fi
 
 fi
@@ -34,8 +35,8 @@ fi
 
 # Rust tools if cargo is installed
 if command -v cargo 1,2> /dev/null; then
-        CARGO_BIN=$HOME/.cargo/bin
-        if [[ -d "$CARGO_BIN" && $PATH != *"$CARGO_BIN"* ]]; then
-                export PATH=$CARGO_BIN:$PATH    
-        fi
+	CARGO_BIN=$HOME/.cargo/bin
+	if [[ -d "$CARGO_BIN" && $PATH != *"$CARGO_BIN"* ]]; then
+		export PATH=$CARGO_BIN:$PATH
+	fi
 fi
