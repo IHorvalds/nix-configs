@@ -1,0 +1,8 @@
+# .bash_profile
+
+# Source the configs
+if [ -f "$HOME/.bashrc" ]; then
+  source "$HOME/.bashrc"
+fi
+
+EDITOR=vim
