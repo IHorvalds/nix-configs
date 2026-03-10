@@ -3,6 +3,25 @@
 These won't be the nicest configs, but they work for me and will improve over time.<br>
 Hopefully.
 
+## Git submodules
+
+For now, just [tpm](https://github.com/tmux-plugins/tpm).
+
+To get them all the first time:
+```bash
+git submodule update --init --recursive
+```
+
+To update them:
+```bash
+git submodule update --recursive --remote
+```
+
+To pull everything all at once (latest remote and latest commit for submodules from their remotes):
+```bash
+git pull --recurse-submodules
+```
+
 ## NixOS notes
 
 The configuration for the OS is in the nixos/ folder.
