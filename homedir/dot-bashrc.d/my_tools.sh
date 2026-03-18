@@ -29,9 +29,7 @@ if command -v direnv 1,2>/dev/null && [[ $(type -t _direnv_hook) != function ]];
 fi
 
 # Rust tools if cargo is installed
-if command -v cargo 1,2> /dev/null; then
-	CARGO_BIN=$HOME/.cargo/bin
-	if [[ -d "$CARGO_BIN" && $PATH != *"$CARGO_BIN"* ]]; then
-		export PATH=$CARGO_BIN:$PATH
-	fi
+CARGO_BIN=$HOME/.cargo/bin
+if [[ -f $HOME/.cargo/env  && $PATH != *"$CARGO_BIN"* ]]; then 
+	source $HOME/.cargo/env
 fi
