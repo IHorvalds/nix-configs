@@ -78,14 +78,13 @@ return { -- LSP Configuration & Plugins
                     },
                 },
             },
-            gopls = {},
             pylsp = { cmd = { "pylsp" } },
             rust_analyzer = {},
             ts_ls = {},
             qmlls = {
                 cmd = {
                     (function()
-                        if vim.loop.os_uname().sysname == 'Darwin' then
+                        if vim.loop.os_uname().sysname == "Darwin" then
                             return ""
                         end
 
@@ -112,6 +111,7 @@ return { -- LSP Configuration & Plugins
                     vim.keymap.set("n", "<leader>i", ":ClangdShowSymbolInfo<CR>")
                 end,
             },
+            dts_lsp = {},
         }
 
         local caps = require("blink.cmp").get_lsp_capabilities()

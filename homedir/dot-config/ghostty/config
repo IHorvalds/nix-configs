@@ -1,7 +1,7 @@
 font-family=JetBrainsMono Nerd Font
-font-size=12
+font-size=10
 background = 1b1e28
-background-opacity = 0.85
+background-opacity = 0.75
 background-blur = true
 foreground = a6accd
 palette = 0=1B1E28
@@ -20,3 +20,7 @@ palette = 12=ADD7FF
 palette = 13=FAE4FC
 palette = 14=89DDFF
 palette = 15=FFFFFF
+gtk-tabs-location = bottom
+
+window-height=35
+window-width=145

@@ -1,17 +1,6 @@
-nnoremap <SPACE> <Nop>
-let g:mapleader = " "
-set listchars = "tab:» ","trail:·","nbsp=␣"
-set noautochdir
-set hlsearch
-set noshowmode
-set tabstop=8
-set shiftwidth=8
-set softtabstop=0
-set noexpandtab
-set smarttab
-
 let g:vimCfgDir = "~/.config/vim"
 
+execute 'source ' . g:vimCfgDir . '/options.vim'
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
@@ -42,11 +31,11 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
 Plug 'preservim/tagbar'
 
 call plug#end()
 
-execute 'source ' . g:vimCfgDir . '/options.vim'
 execute 'source ' . g:vimCfgDir . '/colours.vim'
 execute 'source ' . g:vimCfgDir . '/language-servers.vim'
 execute 'source ' . g:vimCfgDir . '/ack.vim'

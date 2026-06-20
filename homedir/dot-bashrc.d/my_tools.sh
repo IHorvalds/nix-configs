@@ -11,9 +11,18 @@ if [[ $PATH != *"$VCPKG_PATH"* && -x $VCPKG_PATH/vcpkg ]]; then
 
 fi
 
+MY_SYSTEM_TOOLS=/usr/local/my_tools/bin
+if [[ $PATH != *"$MY_SYSTEM_TOOLS"* ]]; then
+	export PATH=$MY_SYSTEM_TOOLS:$PATH
+fi
+
 MY_TOOLS_PATH="$HOME"/.local/bin
 if [[ $PATH != *"$MY_TOOLS_PATH"* ]]; then
 	export PATH=$MY_TOOLS_PATH:$PATH
+fi
+
+if [[ $PATH != *"/usr/local/go/bin"* ]]; then
+	export PATH="/usr/local/go/bin:$PATH"
 fi
 
 # Go tools if go is installed

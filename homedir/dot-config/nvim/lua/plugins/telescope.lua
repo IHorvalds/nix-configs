@@ -24,7 +24,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         pcall(require("telescope").load_extension, "grep_string")
         pcall(require("telescope").load_extension, "undo")
 
-
         -- See `:help telescope.builtin`
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>f", function()
@@ -39,6 +38,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
         vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
         vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+        vim.keymap.set("n", "<leader>so", builtin.lsp_workspace_symbols, { desc = "Search LSP Symbols in Workspace" })
 
         vim.keymap.set("n", "<C-f>", function()
             builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
