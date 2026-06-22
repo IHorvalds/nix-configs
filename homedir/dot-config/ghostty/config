@@ -1,8 +1,6 @@
 font-family=JetBrainsMono Nerd Font
 font-size=10
 background = 1b1e28
-background-opacity = 0.75
-background-blur = true
 foreground = a6accd
 palette = 0=1B1E28
 palette = 1=D0679D
@@ -24,3 +22,7 @@ gtk-tabs-location = bottom
 
 window-height=35
 window-width=145
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:up
+keybind = ctrl+shift+k=goto_split:down
+keybind = ctrl+shift+l=goto_split:right

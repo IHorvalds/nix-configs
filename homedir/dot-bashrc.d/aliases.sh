@@ -6,9 +6,9 @@ alias gpre='grep'
 alias gper='grep'
 alias rm-rf='rm -rf'
 
-alias less="less -N -I -S --mouse"
+alias less="less -N -I -S --mouse --use-color"
 
-function mkcdir() {
+mkcdir() {
   mkdir -p -- "$1" && cd -P -- "$1"
 }
 
@@ -22,3 +22,7 @@ if [[ $OSTYPE == *"linux"* ]]; then
 elif [[ $OSTYPE == *"darwin"* ]]; then
   alias clippy="pbcopy"
 fi
+
+cdls() {
+  cd "$1" && ls -la	
+}
