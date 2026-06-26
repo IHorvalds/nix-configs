@@ -25,11 +25,11 @@ return { -- Autoformat
         end,
         formatters_by_ft = {
             lua = { "stylua" },
-            python = { "isort", "black" },
+            python = { "ruff" },
             c = { "clang-format" },
             cpp = { "clang-format" },
             rust = { "rustfmt" },
-            cmake = { "cmake-format" },
+            cmake = { "cmake_format" },
         },
     },
 }
