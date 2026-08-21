@@ -15,3 +15,6 @@ cmake-build-*
 
 # VSCode
 .vscode
+
+# Claude
+**/.claude/settings.local.json

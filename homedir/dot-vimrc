@@ -4,6 +4,7 @@ execute 'source ' . g:vimCfgDir . '/options.vim'
 call plug#begin()
 
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'crusoexia/vim-monokai'

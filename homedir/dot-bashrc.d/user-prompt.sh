@@ -9,7 +9,7 @@ RED='\[\e[31m\]'
 RESET='\[\e[0m\]'
 BOLD='\[\e[1m\]'
 
-function show_exit_code() {
+show_exit_code() {
     local exit_code=$?
     if [[ $exit_code -ne 0 ]]; then
         echo " [${exit_code}]"
@@ -18,7 +18,7 @@ function show_exit_code() {
     echo
 }
 
-function show_current_branch() {
+show_current_branch() {
         branch_name=$(git branch --show-current 2>/dev/null)
         if [[ -n $branch_name ]]; then
                 echo " {git: $branch_name}"
@@ -27,10 +27,15 @@ function show_current_branch() {
         echo 
 }
 
-function make_prompt() {
+show_container() {
+	[ -f /.dockerenv ] && echo " 🐋"
+}
+
+make_prompt() {
   local exit_code=$(show_exit_code)
   local git_branch=$(show_current_branch)
-  PS1="╭─ ${CYAN}[\A]${RESET} ${PURPLE}\u${RESET}@${CYAN}${BOLD}\h${RESET} ${WHITE}\W${RESET}${BRIGHT_CYAN}${git_branch}${RESET}\n╰─➤${RED}${exit_code}${RESET} \$ "
+  local container=$(show_container)
+  PS1="╭─ ${CYAN}[\A]${RESET} ${PURPLE}\u${RESET}@${CYAN}${BOLD}\h${RESET}${container} ${WHITE}\W${RESET}${BRIGHT_CYAN}${git_branch}${RESET}\n╰─➤${RED}${exit_code}${RESET} \$ "
 }
 
 PROMPT_COMMAND=make_prompt
