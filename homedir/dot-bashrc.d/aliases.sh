@@ -6,7 +6,7 @@ alias gpre='grep'
 alias gper='grep'
 alias rm-rf='rm -rf'
 
-alias less="less -N -I -S --mouse"
+alias less="less -N -I -S --mouse -R --use-color"
 
 mkcdir() {
   mkdir -p -- "$1" && cd -P -- "$1"
