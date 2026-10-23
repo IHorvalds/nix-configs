@@ -4,9 +4,9 @@ vim.keymap.set("n", "<C-q>", ":enew | bd#<CR>")
 
 -- Diagnostic keymaps
 local goto_diag = function(jump)
-    return function()
-        vim.diagnostic.jump({ count = jump, float = true })
-    end
+	return function()
+		vim.diagnostic.jump({ count = jump, float = true })
+	end
 end
 
 vim.keymap.set("n", "[d", goto_diag(-1), { desc = "Go to previous [D]iagnostic message" })
@@ -26,6 +26,9 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Select the entire buffer
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select everything" })
+
 -- Resize panes < >
 vim.keymap.set("n", "<leader><", "<C-w><", { desc = "Resize pane left" })
 vim.keymap.set("n", "<leader>>", "<C-w>>", { desc = "Resize pane right" })
@@ -42,10 +45,10 @@ vim.keymap.set("n", "]b", ":BufferNext<CR>", { desc = "Move to next buffer" })
 vim.keymap.set("n", "<leader>bcc", ":BufferClose<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "<leader>bca", ":BufferCloseAllButCurrent<CR> | :BufferClose<CR>", { desc = "Close all buffers" })
 vim.keymap.set(
-    "n",
-    "<leader>bco",
-    ":BufferCloseAllButCurrentOrPinned<CR>",
-    { desc = "Close all other buffers except pinned" }
+	"n",
+	"<leader>bco",
+	":BufferCloseAllButCurrentOrPinned<CR>",
+	{ desc = "Close all other buffers except pinned" }
 )
 
 -- Move between words simpler
@@ -60,11 +63,11 @@ vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { desc = "Previous entry in quic
 
 -- Overscroll
 vim.keymap.set("n", "j", function()
-    if vim.fn.line(".") == vim.fn.line("$") then
-        return "<c-e>"
-    else
-        return "<down>"
-    end
+	if vim.fn.line(".") == vim.fn.line("$") then
+		return "<c-e>"
+	else
+		return "<down>"
+	end
 end, { remap = true, expr = true, desc = "Overscroll" })
 
 -- Add parentheses, quotes, double quotes and backticks on selection

@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-VCPKG_PATH=$HOME/Tools/Utilities/vcpkg
+VCPKG_PATH="$HOME"/Tools/Utilities/vcpkg
 if [[ $PATH != *"$VCPKG_PATH"* && -x $VCPKG_PATH/vcpkg ]]; then
 	export PATH=$VCPKG_PATH:$PATH
-	
+
 	VCPKG_COMP_BASH="vcpkg_completion.bash"
 	if [[ -f $VCPKG_PATH/scripts/$VCPKG_COMP_BASH ]]; then
+		# shellcheck source=/dev/null
 		source "$VCPKG_PATH/scripts/$VCPKG_COMP_BASH"
 	fi
 
@@ -38,7 +39,8 @@ if command -v direnv 1,2>/dev/null && [[ $(type -t _direnv_hook) != function ]];
 fi
 
 # Rust tools if cargo is installed
-CARGO_BIN=$HOME/.cargo/bin
-if [[ -f $HOME/.cargo/env  && $PATH != *"$CARGO_BIN"* ]]; then 
-	source $HOME/.cargo/env
+CARGO_BIN="$HOME"/.cargo/bin
+if [[ -f "$HOME"/.cargo/env  && $PATH != *"$CARGO_BIN"* ]]; then
+	# shellcheck source=/dev/null
+	source "$HOME"/.cargo/env
 fi

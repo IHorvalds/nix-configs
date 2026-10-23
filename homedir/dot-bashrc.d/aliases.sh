@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 
 alias grpe='grep'
 alias gerp='grep'
@@ -9,20 +9,20 @@ alias rm-rf='rm -rf'
 alias less="less -N -I -S --mouse -R --use-color"
 
 mkcdir() {
-  mkdir -p -- "$1" && cd -P -- "$1"
+	mkdir -p -- "$1" && cd -P -- "$1" || return
 }
 
 alias tas="tmux new -A -c ~ -s "
 alias reboot="sleep 10 && reboot"
 
 if [[ $OSTYPE == *"linux"* ]]; then
-  alias clippy='wl-copy'
-  alias notify='notify-send -w -a "PID $! is done" "Command is done" --hint=string:sound-file:/usr/share/sounds/ocean/stereo/outcome-success.oga'
-  alias open="xdg-open"
+	alias clippy='wl-copy'
+	alias notify='notify-send -w -a "PID $! is done" "Command is done" --hint=string:sound-file:/usr/share/sounds/ocean/stereo/outcome-success.oga'
+	alias open="xdg-open"
 elif [[ $OSTYPE == *"darwin"* ]]; then
-  alias clippy="pbcopy"
+	alias clippy="pbcopy"
 fi
 
 cdls() {
-  cd "$1" && ls -la	
+	cd "$1" && ls -la
 }

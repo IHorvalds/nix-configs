@@ -1,4 +1,5 @@
 # Nix Package Manager
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-    source $HOME/.nix-profile/etc/profile.d/nix.sh;
+if [ -e "$HOME"/.nix-profile/etc/profile.d/nix.sh ]; then
+	# shellcheck source=/dev/null
+	source "$HOME"/.nix-profile/etc/profile.d/nix.sh;
 fi

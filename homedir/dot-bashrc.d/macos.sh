@@ -2,5 +2,6 @@
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  [ -f "/Users/tudorcroitoru/.ghcup/env" ] && . "/Users/tudorcroitoru/.ghcup/env" # ghcup-env
+	# shellcheck source=~/.ghcup/env
+	[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 fi
