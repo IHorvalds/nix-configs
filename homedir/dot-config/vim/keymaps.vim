@@ -2,16 +2,15 @@
 map <leader><leader> :Buffers<CR>
 map <C-p> :Files<CR>
 map <C-f> :BLines<CR>
-map <leader>f :LfNewTab<CR>
 map <leader>b :NERDTreeToggle<CR>
 map <leader><S-f> gg=G
 nmap <C-a> ggVG
 nnoremap <leader>u :UndotreeToggle<CR>
 
 " Tabs
-nmap th :tabprevious<CR>
-nmap tl :tabnext<CR>
-nmap tc :tabclose<CR>
+nmap [t :tabprevious<CR>
+nmap ]t :tabnext<CR>
+nmap <leader>tcc :tabclose<CR>
 
 " Buffers
 nmap [b :bprevious<CR>
@@ -25,10 +24,6 @@ nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-k> <C-w>k
 nmap <C-j> <C-w>j
-
-" Move between words
-nmap <leader>h b
-nmap <leader>l w
 
 " Quickfix list
 nmap <leader>cc :cclose<CR>

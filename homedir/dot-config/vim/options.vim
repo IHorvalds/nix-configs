@@ -1,6 +1,7 @@
 nnoremap <SPACE> <Nop>
 let g:mapleader = " "
-set listchars = "tab:» ","trail:·","nbsp=␣"
+set listchars=tab:→\ ,trail:·,nbsp:␣
+set list
 set noautochdir
 set nu
 set rnu

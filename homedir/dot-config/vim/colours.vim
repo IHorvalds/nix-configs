@@ -1,6 +1,6 @@
 " Theme
 if has("termguicolors")
-  set termguicolors
+	set termguicolors
 endif
 
 let g:codedark_transparent=1
@@ -14,8 +14,12 @@ let g:airline_powerline_fonts=1
 " Move key
 let g:move_key_modifier_visualmode='C'
 
-" NERDTree and lf
-let g:NERDTreeHijackNetrw=0
-let g:lf_replace_netrw=1
-let g:lf_map_keys=0
-let g:lf_command_override='lf -command "set hidden"'
+" Highlight trailing whitespace to make it painfully visible
+highlight TrailingWhitespace ctermbg=red guibg=red
+augroup trailing_ws
+	autocmd!
+	" re-apply after any later :colorscheme, which resets it to 'cleared'
+	autocmd ColorScheme * highlight TrailingWhitespace ctermbg=red guibg=red
+	autocmd VimEnter,WinNew * if !exists('w:trailing_ws')
+		\ | let w:trailing_ws = matchadd('TrailingWhitespace', '\s\+$') | endif
+augroup END

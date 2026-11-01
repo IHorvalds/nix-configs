@@ -1,7 +1,6 @@
 [include]
-  path = user.conf
-  path = alias.conf
-  path = delta.conf
-  path = defaults.conf
-  path = creds.conf
-
+	path = user.conf
+	path = alias.conf
+	path = delta.conf
+	path = defaults.conf
+	path = creds.conf
