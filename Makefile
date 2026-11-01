@@ -1,28 +1,22 @@
-# Added to PATH
-SYSTEM_INSTALL_PREFIX := /usr/local/my_tools
-USER_INSTALL_PREFIX := $(HOME)/.local
-
-# Sources, staging and SDKs
-TOOLS := $(HOME)/Tools
-TOOLS_SOURCES := $(HOME)/Sources
-TOOLS_STAGING := ${TOOLS}/Staging
-TOOLS_SDKS := ${TOOLS}/SDKs
-
 STOW := $(shell command -v stow 2>/dev/null)
+DNF := $(shell command -v dnf 2>/dev/null)
 
 .PHONY: install-stow
 install-stow:
 ifdef STOW
 	@echo Stow exists: $(STOW)
 else
-	@echo Stow does not exist. Install it.
+ifdef DNF
+	$(DNF) install -y stow
+else
+	@echo Stow does not exist and there's no DNF. Install it.
+	@false
+endif
 endif
 
-.PHONY: stow-home
+.PHONY: stow-home unstow-home
 stow-home: install-stow
 	$(STOW) --stow homedir --target "$(HOME)"
-
-.PHONY: unstow-home
 unstow-home: install-stow
 	$(STOW) --delete homedir --target "$(HOME)"
 
@@ -52,9 +46,26 @@ _darcs
 .*CONTRIBUTING.*
 endef
 
+# Sources, staging and SDKs
+TOOLS := $(HOME)/Tools
+TOOLS_SOURCES := $(HOME)/Sources
+TOOLS_STAGING := ${TOOLS}/Staging
+TOOLS_SDKS := ${TOOLS}/SDKs
+
+# Added to PATH
+SYSTEM_INSTALL_PREFIX := /usr/local/my_tools
+
 .PHONY: tools
 tools:
 	mkdir -p "$(TOOLS)" "$(TOOLS_SOURCES)" "$(TOOLS_STAGING)" "$(TOOLS_SDKS)"
-	touch "$(TOOLS_STAGING)/.stow"
+	@touch "$(TOOLS_STAGING)/.stow"
 	$(file >$(TOOLS_STAGING)/.stowrc,--target=$(SYSTEM_INSTALL_PREFIX))
 	$(file >$(TOOLS_STAGING)/.stow-local-ignore,$(stow-ignore))
+
+UDEV_DIR := udev
+USR_UDEV_RULES := /usr/lib/udev/rules.d
+.PHONY: udev clean-udev
+udev:
+	$(foreach rule_file, $(wildcard $(UDEV_DIR)/*), ln -s $(realpath $(rule_file)) $(USR_UDEV_RULES)/)
+clean-udev:
+	$(foreach rule_file, $(wildcard $(UDEV_DIR)/*), rm -f $(USR_UDEV_RULES)/$(notdir $(rule_file)))

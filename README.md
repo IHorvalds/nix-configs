@@ -22,7 +22,20 @@ To pull everything all at once (latest remote and latest commit for submodules f
 git pull --recurse-submodules
 ```
 
-## NixOS notes
+## Installation
+
+Everything is managed in the [Makefile](Makefile).
+
+All the config files are meant to be installable without the program being there yet.<br>
+When it gets installed, it just goes in there.
+
+Dotfiles, and everything else in the home directory, are installed using GNU Stow. 
+If it exists, good. Otherwise, if `dnf` exists, install it with that.<br>
+Root and non-root can use the same bashrc, but the one for root needs to be installed by... root.
+
+udev rules need to be installed by root (bc permissions).
+
+## NixOS notes (I don't use this anymore)
 
 The configuration for the OS is in the nixos/ folder.
 It's quite specific to the Apple MBP 13" 2015 with a Broadcom 43xx WiFi card (specific configs for allowing it to sleep and wake up from sleep consistently).
