@@ -49,18 +49,20 @@ endef
 # Sources, staging and SDKs
 TOOLS := $(HOME)/Tools
 TOOLS_SOURCES := $(HOME)/Sources
-TOOLS_STAGING := ${TOOLS}/Staging
-TOOLS_SDKS := ${TOOLS}/SDKs
+TOOLS_STAGING := $(TOOLS)/Staging
+TOOLS_SDKS := $(TOOLS)/SDKs
 
 # Added to PATH
 SYSTEM_INSTALL_PREFIX := /usr/local/my_tools
 
-.PHONY: tools
-tools:
-	mkdir -p "$(TOOLS)" "$(TOOLS_SOURCES)" "$(TOOLS_STAGING)" "$(TOOLS_SDKS)"
-	@touch "$(TOOLS_STAGING)/.stow"
+tools-stow:
 	$(file >$(TOOLS_STAGING)/.stowrc,--target=$(SYSTEM_INSTALL_PREFIX))
 	$(file >$(TOOLS_STAGING)/.stow-local-ignore,$(stow-ignore))
+
+tools:
+	mkdir -p "$(TOOLS)" "$(TOOLS_SOURCES)" "$(TOOLS_STAGING)" "$(TOOLS_SDKS)"
+	touch "$(TOOLS_STAGING)/.stow"
+	${MAKE} tools-stow
 
 UDEV_DIR := udev
 USR_UDEV_RULES := /usr/lib/udev/rules.d
