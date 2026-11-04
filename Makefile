@@ -71,3 +71,29 @@ udev:
 	$(foreach rule_file, $(wildcard $(UDEV_DIR)/*), ln -s $(realpath $(rule_file)) $(USR_UDEV_RULES)/)
 clean-udev:
 	$(foreach rule_file, $(wildcard $(UDEV_DIR)/*), rm -f $(USR_UDEV_RULES)/$(notdir $(rule_file)))
+
+# Install rust via rustup
+.PHONY: install-rust uninstall-rust
+install-rust:
+	$(eval install_sh := $(shell mktemp))
+	@curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > "$(install_sh)"
+	chmod +x "$(install_sh)"
+	"$(install_sh)" --yes --no-modify-path
+	rm -f "$(install_sh)"
+
+uninstall-rust:
+	 rustup self uninstall --yes --no-modify-path
+
+.PHONY: install-uv uninstall-uv
+install-uv:
+	$(eval install_sh := $(shell mktemp))
+	@curl -LsSf https://astral.sh/uv/install.sh > "$(install_sh)"
+	chmod +x "$(install_sh)"
+	"$(install_sh)"
+	rm -f "$(install_sh)"
+
+uninstall-uv:
+	uv cache clean
+	rm -rf "$(shell uv python dir)"
+	rm -rf "$(shell uv tool dir)"
+	rm ~/.local/bin/uv ~/.local/bin/uvx
