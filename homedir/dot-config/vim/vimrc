@@ -1,51 +1,8 @@
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.config/vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 let g:vimCfgDir = "~/.config/vim"
 
 execute 'source ' . g:vimCfgDir . '/options.vim'
-call plug#begin()
-
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'crusoexia/vim-monokai'
-Plug 'rust-lang/rust.vim'
-Plug 'bling/vim-bufferline'
-Plug 'yukimura1227/vim-yazi'
-Plug 'voldikss/vim-floaterm'
-Plug 'preservim/nerdtree'
-Plug 'tomasiser/vim-code-dark'
-Plug 'tpope/vim-commentary'
-Plug 'romainl/vim-cool'
-Plug 'matze/vim-move'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'cespare/vim-toml'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'ryanoasis/vim-devicons'
-Plug 'mileszs/ack.vim'
-Plug 'mbbill/undotree'
-Plug 'thinca/vim-breadcrumbs'
-
-" LSP configurations
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go'
-Plug 'preservim/tagbar'
-
-call plug#end()
-
+execute 'source ' . g:vimCfgDir . '/plugins.vim'
 execute 'source ' . g:vimCfgDir . '/colours.vim'
-execute 'source ' . g:vimCfgDir . '/yazi.vim'
 execute 'source ' . g:vimCfgDir . '/ack.vim'
 execute 'source ' . g:vimCfgDir . '/language-servers.vim'
 execute 'source ' . g:vimCfgDir . '/functions.vim'

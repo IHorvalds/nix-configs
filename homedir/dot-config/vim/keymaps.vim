@@ -2,7 +2,6 @@
 map <leader><leader> :Buffers<CR>
 map <C-p> :Files<CR>
 map <C-f> :BLines<CR>
-map <leader>b :NERDTreeToggle<CR>
 map <leader><S-f> gg=G
 nmap <C-a> ggVG
 nnoremap <leader>u :UndotreeToggle<CR>
