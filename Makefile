@@ -1,27 +1,7 @@
 STOW := $(shell command -v stow 2>/dev/null)
 DNF := $(shell command -v dnf 2>/dev/null)
 
-.PHONY: install-stow
-install-stow:
-ifdef STOW
-	@echo Stow exists: $(STOW)
-else
-ifdef DNF
-	$(DNF) install -y stow
-else
-	@echo Stow does not exist and there's no DNF. Install it.
-	@false
-endif
-endif
-
-.PHONY: stow-home unstow-home
-stow-home: install-stow
-	$(STOW) --stow homedir --target "$(HOME)"
-unstow-home: install-stow
-	$(STOW) --delete homedir --target "$(HOME)"
-
-
-define stow-ignore
+define stow-global-ignore
 RCS
 .+,v
 
@@ -40,11 +20,62 @@ _darcs
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
+\.ci.*
+\.vscode
+\.idea.*
+\.github.*
+\.gitlab.*
+
+# Go stuff
+^/api
+^/doc
+^/pkg
+^/test
+^/src
+
+
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
-.*CONTRIBUTING.*
+^/CONTRIBUTING.*
+^/AGENTS.*
+^/CLAUDE.*
+^/codereview.*
+^/CONTRIBUTING.*
+^/PATENTS.*
+^/SECURITY.*
+^/VERSION.*
+^/version.*
+^/CODEOWNERS.*
+^/CODE_OF_CONDUCT.*
+^/PATENT.*
+^/SECURITY.*
+^/TESTOWNER.*
 endef
+
+.PHONY: stow-global-ignore-list
+stow-global-ignore-list:
+	$(file >$(HOME)/.stow-global-ignore,$(stow-global-ignore))
+
+.PHONY: install-stow
+install-stow:
+ifdef STOW
+	@echo Stow exists: $(STOW)
+else
+ifdef DNF
+	$(DNF) install -y stow
+else
+	@echo Stow does not exist and there's no DNF. Install it.
+	@false
+endif
+endif
+
+.PHONY: stow-home unstow-home
+stow-home: install-stow stow-global-ignore-list
+	$(STOW) --stow homedir --target "$(HOME)"
+unstow-home: install-stow
+	$(STOW) --delete homedir --target "$(HOME)"
+
 
 # Sources, staging and SDKs
 TOOLS := $(HOME)/Tools
@@ -55,9 +86,9 @@ TOOLS_SDKS := $(TOOLS)/SDKs
 # Added to PATH
 SYSTEM_INSTALL_PREFIX := /usr/local/my_tools
 
+.PHONY: tools-stow
 tools-stow:
 	$(file >$(TOOLS_STAGING)/.stowrc,--target=$(SYSTEM_INSTALL_PREFIX))
-	$(file >$(TOOLS_STAGING)/.stow-local-ignore,$(stow-ignore))
 
 tools:
 	mkdir -p "$(TOOLS)" "$(TOOLS_SOURCES)" "$(TOOLS_STAGING)" "$(TOOLS_SDKS)"
